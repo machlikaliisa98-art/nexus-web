@@ -1,9 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
-import { founders } from "@/components/leadership";
+import {
+  founders,
+  Founder,
+} from "@/components/leadership";
+
+import ExpertiseCard from "@/components/leadership/ExpertiseCard";
 
 interface PageProps {
   params: {
@@ -18,11 +23,11 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const founder = founders.find((f) => f.slug === params.slug);
+  const founder = founders.find((item) => item.slug === params.slug);
 
   if (!founder) {
     return {
-      title: "Executive Profile | Nexus Inc.",
+      title: "Leadership | Nexus Inc.",
     };
   }
 
@@ -33,116 +38,192 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default function ExecutiveProfile({ params }: PageProps) {
-  const founder = founders.find((f) => f.slug === params.slug);
+  const founder: Founder | undefined = founders.find(
+    (item) => item.slug === params.slug
+  );
 
   if (!founder) {
     notFound();
   }
 
   return (
-    <main className="bg-black text-white">
-      <section className="mx-auto max-w-7xl px-6 py-20">
+    <main className="min-h-screen bg-black text-white">
 
-        <Link
-          href="/leadership"
-          className="mb-12 inline-flex items-center gap-2 text-zinc-400 transition hover:text-cyan-400"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Leadership
-        </Link>
+      {/* Hero */}
 
-        <div className="grid gap-16 lg:grid-cols-[380px,1fr]">
+      <section className="border-b border-zinc-900 bg-gradient-to-b from-zinc-950 via-black to-black">
 
-          {/* Portrait */}
+        <div className="mx-auto max-w-7xl px-6 py-20">
 
-          <div>
-            <div className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900">
-              <Image
-                src={founder.image}
-                alt={founder.name}
-                width={500}
-                height={650}
-                className="h-auto w-full object-cover"
-                priority
-              />
+          <Link
+            href="/leadership"
+            className="inline-flex items-center gap-2 text-zinc-400 transition hover:text-cyan-400"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to Leadership
+          </Link>
+
+          <div className="mt-14 grid items-center gap-16 lg:grid-cols-[380px_1fr]">
+
+            {/* Portrait */}
+
+            <div className="flex justify-center">
+
+              <div className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 shadow-2xl">
+
+                <Image
+                  src={founder.image}
+                  alt={founder.name}
+                  width={450}
+                  height={560}
+                  priority
+                  className="h-auto w-full object-cover transition duration-500 hover:scale-105"
+                />
+
+              </div>
+
             </div>
-          </div>
 
-          {/* Content */}
+            {/* Hero Content */}
 
-          <div>
+            <div>
 
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              Executive Profile
-            </p>
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">
+                Executive Profile
+              </p>
 
-            <h1 className="mt-3 text-5xl font-bold">
-              {founder.name}
-            </h1>
+              <h1 className="mt-4 text-5xl font-bold lg:text-6xl">
+                {founder.name}
+              </h1>
 
-            <p className="mt-3 text-xl text-cyan-300">
-              {founder.title}
-            </p>
+              <p className="mt-4 text-2xl text-cyan-300">
+                {founder.title}
+              </p>
 
-            <p className="mt-8 text-lg leading-9 text-zinc-300">
-              {founder.intro}
-            </p>
-
-            {/* Philosophy */}
-
-            <div className="mt-14 rounded-3xl border border-cyan-500/30 bg-cyan-500/10 p-8">
-
-              <h2 className="text-lg font-semibold text-white">
-                Leadership Philosophy
-              </h2>
-
-              <p className="mt-5 text-xl italic leading-9 text-cyan-300">
-                "{founder.philosophy}"
+              <p className="mt-10 max-w-3xl text-lg leading-9 text-zinc-300">
+                {founder.intro}
               </p>
 
             </div>
 
-            {/* Biography */}
-
-            <section className="mt-16">
-
-              <h2 className="mb-8 text-3xl font-bold">
-                Executive Overview
-              </h2>
-
-              <div className="space-y-6 text-lg leading-9 text-zinc-300">
-                {founder.biography.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-
-            </section>
-
-            {/* Responsibilities */}
-
-            <section className="mt-16">
-
-              <h2 className="mb-8 text-3xl font-bold">
-                Responsibilities
-              </h2>
-
-              <div className="flex flex-wrap gap-4">
-                {founder.responsibilities.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-zinc-700 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-200"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-            </section>
-
           </div>
 
         </div>
+
       </section>
+
+      {/* Body */}
+
+      <section className="mx-auto max-w-7xl px-6 py-24">
+
+        {/* Philosophy */}
+
+        <div className="rounded-3xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-10">
+
+          <h2 className="text-xl font-semibold text-white">
+            Leadership Philosophy
+          </h2>
+
+          <blockquote className="mt-6 border-l-4 border-cyan-500 pl-6 text-2xl italic leading-10 text-cyan-300">
+            "{founder.philosophy}"
+          </blockquote>
+
+        </div>
+
+        {/* Executive Overview */}
+
+        <section className="mt-24">
+
+          <h2 className="mb-10 text-4xl font-bold">
+            Executive Overview
+          </h2>
+
+          <div className="space-y-7 text-lg leading-9 text-zinc-300">
+
+            {founder.biography.map((paragraph) => (
+              <p key={paragraph}>
+                {paragraph}
+              </p>
+            ))}
+
+          </div>
+
+        </section>
+
+        {/* Expertise */}
+
+        <section className="mt-24">
+
+          <h2 className="mb-10 text-4xl font-bold">
+            Areas of Expertise
+          </h2>
+
+          <div className="grid gap-6 md:grid-cols-2">
+
+            {founder.expertise.map((item) => (
+              <ExpertiseCard
+                key={item.title}
+                title={item.title}
+                description={item.description}
+              />
+            ))}
+
+          </div>
+
+        </section>
+
+        {/* Responsibilities */}
+
+        <section className="mt-24">
+
+          <h2 className="mb-10 text-4xl font-bold">
+            Responsibilities
+          </h2>
+
+          <div className="flex flex-wrap gap-4">
+
+            {founder.responsibilities.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-zinc-700 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-cyan-500 hover:text-cyan-300"
+              >
+                {item}
+              </span>
+            ))}
+
+          </div>
+
+        </section>
+
+        {/* CTA */}
+
+        <section className="mt-28 rounded-3xl border border-zinc-800 bg-zinc-900 p-10">
+
+          <h2 className="text-3xl font-bold">
+            Building Africa's AI Future
+          </h2>
+
+          <p className="mt-6 max-w-3xl text-lg leading-9 text-zinc-400">
+            Nexus Inc. is committed to building artificial intelligence,
+            enterprise software and digital infrastructure engineered in Africa
+            for global impact. Every member of our executive leadership team
+            shares the responsibility of transforming that vision into reality.
+          </p>
+
+          <Link
+            href="/leadership"
+            className="mt-10 inline-flex items-center gap-3 rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:bg-cyan-400"
+          >
+            Meet the Executive Team
+
+            <ArrowRight className="h-5 w-5" />
+
+          </Link>
+
+        </section>
+
+      </section>
+
     </main>
   );
 }
