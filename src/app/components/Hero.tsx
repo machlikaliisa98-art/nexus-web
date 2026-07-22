@@ -1,89 +1,65 @@
-"use client";
-
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-zinc-900 bg-black">
+    <section
+      id="home"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#050816] px-6"
+    >
+      {/* Ambient Glow */}
+      <div className="absolute left-1/2 top-1/2 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/10 blur-[180px]" />
 
-      {/* Background glow */}
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center text-center">
+        {/* Logo */}
+        <Image
+          src="/images/logo-full.png"
+          alt="Nexus Inc."
+          width={720}
+          height={180}
+          priority
+          className="mt-16 mb-14 w-full max-w-[620px]"
+        />
 
-      <div className="absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl" />
-        <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-cyan-400/5 blur-3xl" />
-      </div>
+        {/* Heading */}
+        <h1
+          className="max-w-5xl text-5xl font-normal leading-tight text-white md:text-7xl"
+          style={{ fontFamily: "Times New Roman, serif" }}
+        >
+          Building the Next Generation of
+          <span className="block mt-2 text-blue-400">
+            Intelligent Systems
+          </span>
+        </h1>
 
-      <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-6">
+        {/* Description */}
+        <p
+          className="mt-10 max-w-4xl text-xl leading-10 text-gray-300"
+          style={{ fontFamily: "Times New Roman, serif" }}
+        >
+          Nexus Inc. is a Rwandan deep technology company advancing
+          artificial intelligence through world-class research,
+          enterprise software and intelligent infrastructure that
+          empowers governments, businesses and society.
+        </p>
 
-        <div className="max-w-5xl">
+        {/* Buttons */}
+        <div className="mt-14 flex flex-wrap justify-center gap-6">
+          <Link
+            href="/research"
+            className="rounded-full bg-blue-600 px-10 py-4 text-lg transition duration-300 hover:bg-blue-500"
+          >
+            Explore Research
+          </Link>
 
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">
-            Sovereign Artificial Intelligence
-          </p>
-
-          <h1 className="mt-8 text-5xl font-bold leading-tight text-white lg:text-7xl">
-            Building Africa&apos;s
-            <br />
-            AI Infrastructure
-            <br />
-            for the Next Century.
-          </h1>
-
-          <p className="mt-10 max-w-3xl text-xl leading-10 text-zinc-400">
-            Nexus Inc. is an African deep technology company building sovereign
-            artificial intelligence, digital infrastructure and enterprise
-            platforms designed, engineered and owned in Africa.
-          </p>
-
-          <div className="mt-14 flex flex-col gap-4 sm:flex-row">
-
-            <Link
-              href="/technologies"
-              className="rounded-xl bg-cyan-500 px-8 py-4 text-center font-semibold text-black transition hover:bg-cyan-400"
-            >
-              Explore Technologies
-            </Link>
-
-            <Link
-              href="/research"
-              className="rounded-xl border border-zinc-700 px-8 py-4 text-center text-white transition hover:border-cyan-500 hover:text-cyan-400"
-            >
-              View Research
-            </Link>
-
-          </div>
-
-          <div className="mt-20 grid gap-10 border-t border-zinc-900 pt-10 sm:grid-cols-3">
-
-            <div>
-              <h2 className="text-4xl font-bold text-cyan-400">AI</h2>
-              <p className="mt-3 text-zinc-500">
-                Building sovereign artificial intelligence tailored for Africa.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-4xl font-bold text-cyan-400">Data</h2>
-              <p className="mt-3 text-zinc-500">
-                Creating resilient digital infrastructure and knowledge systems.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-4xl font-bold text-cyan-400">
-                Enterprise
-              </h2>
-              <p className="mt-3 text-zinc-500">
-                Delivering intelligent platforms that solve real-world problems.
-              </p>
-            </div>
-
-          </div>
-
+          <Link
+            href="/products"
+            className="rounded-full border border-white/20 px-10 py-4 text-lg transition duration-300 hover:border-blue-400"
+          >
+            Explore Products
+          </Link>
         </div>
-
       </div>
-
     </section>
   );
 }
