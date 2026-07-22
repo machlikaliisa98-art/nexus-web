@@ -1,138 +1,100 @@
+import Link from "next/link";
+
 export default function Research() {
+  const research = [
+    {
+      title: "Artificial Intelligence",
+      description:
+        "Developing intelligent systems capable of learning, reasoning and solving complex real-world challenges.",
+    },
+    {
+      title: "Language & Speech",
+      description:
+        "Building multilingual language models, conversational AI, transcription and speech intelligence for Africa and beyond.",
+    },
+    {
+      title: "Computer Vision",
+      description:
+        "Creating advanced vision systems for healthcare, agriculture, security and enterprise automation.",
+    },
+  ];
+
   return (
-    <section
-      id="research"
-      className="border-t border-white/10 bg-[#080C14] py-32 scroll-mt-20"
-    >
-      <div className="mx-auto max-w-7xl px-8">
+    <section className="bg-[#060A1A] py-28">
+      <div className="mx-auto max-w-7xl px-6">
 
-        <p className="text-xs uppercase tracking-[0.45em] text-blue-400">
-          RESEARCH & DEVELOPMENT
-        </p>
+        {/* Heading */}
 
-        <h2
-          className="mt-6 max-w-5xl text-5xl leading-tight"
-          style={{ fontFamily: "Times New Roman, serif" }}
-        >
-          Advancing Artificial Intelligence Through Research
-        </h2>
+        <div className="max-w-4xl">
 
-        <p className="mt-8 max-w-5xl text-lg leading-9 text-gray-300 text-justify">
-          At Nexus Inc., research is not a department. It is the foundation of
-          every technology we build. We believe Africa must become a creator of
-          artificial intelligence, contributing original research, engineering
-          breakthroughs and globally competitive technologies that solve real
-          world challenges while shaping the future of intelligent systems.
-        </p>
+          <p
+            className="uppercase tracking-[0.4em] text-sm text-blue-400"
+            style={{ fontFamily: "Arial" }}
+          >
+            RESEARCH
+          </p>
 
-        <div className="mt-24 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <h2
+            className="mt-6 text-5xl leading-tight text-white md:text-6xl"
+            style={{ fontFamily: "Times New Roman, serif" }}
+          >
+            Research That Drives
+            <br />
+            Intelligent Innovation
+          </h2>
 
-          <div className="border border-white/10 p-10 transition duration-300 hover:border-blue-500 hover:bg-white/5">
-            <h3
-              className="text-3xl"
-              style={{ fontFamily: "Times New Roman, serif" }}
-            >
-              Artificial Intelligence
-            </h3>
-
-            <p className="mt-6 leading-8 text-gray-400">
-              Research into foundation models, enterprise AI, intelligent
-              automation, reasoning systems and next generation machine
-              learning.
-            </p>
-          </div>
-
-          <div className="border border-white/10 p-10 transition duration-300 hover:border-blue-500 hover:bg-white/5">
-            <h3
-              className="text-3xl"
-              style={{ fontFamily: "Times New Roman, serif" }}
-            >
-              African Language Intelligence
-            </h3>
-
-            <p className="mt-6 leading-8 text-gray-400">
-              Speech recognition, translation, language understanding and
-              multilingual AI designed for Africa's diverse languages.
-            </p>
-          </div>
-
-          <div className="border border-white/10 p-10 transition duration-300 hover:border-blue-500 hover:bg-white/5">
-            <h3
-              className="text-3xl"
-              style={{ fontFamily: "Times New Roman, serif" }}
-            >
-              Financial Infrastructure
-            </h3>
-
-            <p className="mt-6 leading-8 text-gray-400">
-              Intelligent payment systems, fraud detection, financial inclusion,
-              banking infrastructure and digital economies.
-            </p>
-          </div>
-
-          <div className="border border-white/10 p-10 transition duration-300 hover:border-blue-500 hover:bg-white/5">
-            <h3
-              className="text-3xl"
-              style={{ fontFamily: "Times New Roman, serif" }}
-            >
-              Agriculture & Climate
-            </h3>
-
-            <p className="mt-6 leading-8 text-gray-400">
-              Precision agriculture, satellite intelligence, climate analytics,
-              food security and environmental monitoring powered by AI.
-            </p>
-          </div>
-
-          <div className="border border-white/10 p-10 transition duration-300 hover:border-blue-500 hover:bg-white/5">
-            <h3
-              className="text-3xl"
-              style={{ fontFamily: "Times New Roman, serif" }}
-            >
-              Digital Government
-            </h3>
-
-            <p className="mt-6 leading-8 text-gray-400">
-              Secure digital public infrastructure, citizen services,
-              interoperable government systems and intelligent public sector
-              transformation.
-            </p>
-          </div>
-
-          <div className="border border-white/10 p-10 transition duration-300 hover:border-blue-500 hover:bg-white/5">
-            <h3
-              className="text-3xl"
-              style={{ fontFamily: "Times New Roman, serif" }}
-            >
-              Responsible AI
-            </h3>
-
-            <p className="mt-6 leading-8 text-gray-400">
-              AI governance, transparency, ethics, security and trustworthy
-              intelligent systems that serve society responsibly.
-            </p>
-          </div>
+          <p
+            className="mt-8 text-lg leading-9 text-gray-300"
+            style={{ fontFamily: "Times New Roman, serif" }}
+          >
+            Every Nexus product begins with research. Our work spans
+            artificial intelligence, language technologies, computer
+            vision and intelligent infrastructure, transforming scientific
+            discovery into practical solutions.
+          </p>
 
         </div>
 
-        <div className="mt-24 border-l-2 border-blue-500 pl-8">
+        {/* Cards */}
 
-          <h3
-            className="text-3xl"
-            style={{ fontFamily: "Times New Roman, serif" }}
+        <div className="mt-20 grid gap-8 lg:grid-cols-3">
+
+          {research.map((item) => (
+
+            <div
+              key={item.title}
+              className="rounded-3xl border border-white/10 bg-white/5 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-blue-500 hover:bg-white/10"
+            >
+
+              <div className="mb-6 h-1 w-20 rounded-full bg-blue-500"></div>
+
+              <h3
+                className="text-3xl text-white"
+                style={{ fontFamily: "Times New Roman, serif" }}
+              >
+                {item.title}
+              </h3>
+
+              <p className="mt-6 leading-8 text-gray-300">
+                {item.description}
+              </p>
+
+            </div>
+
+          ))}
+
+        </div>
+
+        {/* CTA */}
+
+        <div className="mt-16 text-center">
+
+          <Link
+            href="/research"
+            className="inline-flex rounded-full bg-blue-600 px-8 py-4 transition hover:bg-blue-500"
           >
-            Our Long Term Vision
-          </h3>
-
-          <p className="mt-6 max-w-5xl text-lg leading-9 text-gray-300 text-justify">
-            Our ambition extends beyond developing products. We are building
-            scientific and engineering capabilities that position Africa as a
-            meaningful contributor to global artificial intelligence. Through
-            continuous research, strategic partnerships and responsible
-            innovation, Nexus Inc. is committed to creating technologies that
-            improve industries, strengthen institutions and empower future
-            generations.
-          </p>
+            Explore All Research
+          </Link>
 
         </div>
 
