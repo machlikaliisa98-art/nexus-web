@@ -1,80 +1,81 @@
 import Link from "next/link";
 
+const pillars = [
+  {
+    title: "Artificial Intelligence",
+    description:
+      "Building sovereign AI systems designed, trained and deployed for African realities.",
+  },
+  {
+    title: "Digital Infrastructure",
+    description:
+      "Developing the data platforms and infrastructure required for the continent's digital future.",
+  },
+  {
+    title: "Enterprise Platforms",
+    description:
+      "Creating intelligent products that help governments, institutions and businesses operate more effectively.",
+  },
+  {
+    title: "Research First",
+    description:
+      "Every product begins with research, evidence and long-term thinking rather than trends.",
+  },
+];
+
 export default function About() {
   return (
-    <section className="bg-[#050816] py-28">
-      <div className="mx-auto grid max-w-7xl items-center gap-20 px-6 lg:grid-cols-2">
+    <section className="border-t border-zinc-900 bg-black">
+      <div className="mx-auto max-w-7xl px-6 py-28">
 
-        {/* Left Side */}
+        <div className="max-w-3xl">
 
-        <div>
-
-          <p
-            className="uppercase tracking-[0.4em] text-sm text-blue-400"
-            style={{ fontFamily: "Arial" }}
-          >
-            WHO WE ARE
+          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">
+            Why Nexus Exists
           </p>
 
-          <h2
-            className="mt-6 text-5xl leading-tight text-white md:text-6xl"
-            style={{ fontFamily: "Times New Roman, serif" }}
-          >
-            Engineering the Future of Artificial Intelligence from Africa
+          <h2 className="mt-6 text-4xl font-bold leading-tight text-white md:text-6xl">
+            Africa should not only consume artificial intelligence.
+            <br />
+            It should create it.
           </h2>
 
-          <p
-            className="mt-10 text-lg leading-9 text-gray-300"
-            style={{ fontFamily: "Times New Roman, serif" }}
-          >
-            Nexus Inc. is a Rwandan artificial intelligence company dedicated
-            to advancing scientific research, enterprise software, and digital
-            infrastructure. We develop intelligent technologies that empower
-            governments, businesses, and communities while positioning Africa
-            as a global contributor to AI innovation.
+          <p className="mt-8 text-xl leading-10 text-zinc-400">
+            Nexus Inc. exists to build sovereign artificial intelligence,
+            digital infrastructure and enterprise technologies that are
+            designed, engineered and owned in Africa. We believe the continent
+            must participate in shaping the future of intelligence—not merely
+            adopting technologies developed elsewhere.
           </p>
-
-          <Link
-            href="/about"
-            className="mt-10 inline-flex rounded-full bg-blue-600 px-8 py-4 transition hover:bg-blue-500"
-          >
-            Learn More About Nexus
-          </Link>
 
         </div>
 
-        {/* Right Side */}
+        <div className="mt-20 grid gap-8 md:grid-cols-2">
 
-        <div className="grid grid-cols-2 gap-6">
+          {pillars.map((pillar) => (
+            <div
+              key={pillar.title}
+              className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8 transition hover:border-cyan-500"
+            >
+              <h3 className="text-2xl font-semibold text-white">
+                {pillar.title}
+              </h3>
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-            <h3 className="text-5xl font-bold text-blue-400">AI</h3>
-            <p className="mt-3 text-gray-300">
-              Research & Development
-            </p>
-          </div>
+              <p className="mt-4 leading-8 text-zinc-400">
+                {pillar.description}
+              </p>
+            </div>
+          ))}
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-            <h3 className="text-5xl font-bold text-blue-400">3</h3>
-            <p className="mt-3 text-gray-300">
-              Flagship Products
-            </p>
-          </div>
+        </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-            <h3 className="text-5xl font-bold text-blue-400">∞</h3>
-            <p className="mt-3 text-gray-300">
-              Possibilities Through Innovation
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-            <h3 className="text-5xl font-bold text-blue-400">RW</h3>
-            <p className="mt-3 text-gray-300">
-              Proudly Built in Rwanda
-            </p>
-          </div>
-
+        <div className="mt-16">
+          <Link
+            href="/about"
+            className="inline-flex rounded-xl bg-cyan-500 px-8 py-4 font-semibold text-black transition hover:bg-cyan-400"
+          >
+            Discover Our Story
+          </Link>
         </div>
 
       </div>
