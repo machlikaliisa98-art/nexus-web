@@ -9,6 +9,8 @@ import {
 } from "@/components/leadership";
 
 import ExpertiseCard from "@/components/leadership/ExpertiseCard";
+import Publications from "@/components/leadership/Publications";
+import { publications } from "@/components/leadership/publications";
 
 interface PageProps {
   params: {
@@ -46,6 +48,10 @@ export default function ExecutiveProfile({ params }: PageProps) {
     notFound();
   }
 
+  const founderPublications = publications.filter(
+    (article) => article.author === founder.slug
+  );
+
   return (
     <main className="min-h-screen bg-black text-white">
 
@@ -65,8 +71,6 @@ export default function ExecutiveProfile({ params }: PageProps) {
 
           <div className="mt-14 grid items-center gap-16 lg:grid-cols-[380px_1fr]">
 
-            {/* Portrait */}
-
             <div className="flex justify-center">
 
               <div className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 shadow-2xl">
@@ -83,8 +87,6 @@ export default function ExecutiveProfile({ params }: PageProps) {
               </div>
 
             </div>
-
-            {/* Hero Content */}
 
             <div>
 
@@ -150,7 +152,7 @@ export default function ExecutiveProfile({ params }: PageProps) {
 
         </section>
 
-        {/* Expertise */}
+        {/* Areas of Expertise */}
 
         <section className="mt-24">
 
@@ -172,12 +174,16 @@ export default function ExecutiveProfile({ params }: PageProps) {
 
         </section>
 
+        {/* Publications */}
+
+        <Publications publications={founderPublications} />
+
         {/* Responsibilities */}
 
         <section className="mt-24">
 
           <h2 className="mb-10 text-4xl font-bold">
-            Responsibilities
+            Executive Responsibilities
           </h2>
 
           <div className="flex flex-wrap gap-4">
@@ -195,26 +201,47 @@ export default function ExecutiveProfile({ params }: PageProps) {
 
         </section>
 
+        {/* Vision */}
+
+        <section className="mt-24 rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-zinc-900 to-zinc-950 p-10">
+
+          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">
+            Looking Ahead
+          </p>
+
+          <h2 className="mt-4 text-4xl font-bold">
+            Vision for Africa
+          </h2>
+
+          <p className="mt-8 max-w-4xl text-lg leading-9 text-zinc-300">
+            Nexus Inc. believes Africa's future will be defined by its ability
+            to create, own and export world-class technology. Through research,
+            engineering and responsible artificial intelligence, we are building
+            digital infrastructure designed not only to solve today's
+            challenges, but to position Africa as a global leader in innovation.
+          </p>
+
+        </section>
+
         {/* CTA */}
 
-        <section className="mt-28 rounded-3xl border border-zinc-800 bg-zinc-900 p-10">
+        <section className="mt-24 rounded-3xl border border-zinc-800 bg-zinc-900 p-10">
 
           <h2 className="text-3xl font-bold">
-            Building Africa's AI Future
+            Meet the Executive Team
           </h2>
 
           <p className="mt-6 max-w-3xl text-lg leading-9 text-zinc-400">
-            Nexus Inc. is committed to building artificial intelligence,
-            enterprise software and digital infrastructure engineered in Africa
-            for global impact. Every member of our executive leadership team
-            shares the responsibility of transforming that vision into reality.
+            Discover the leaders driving Nexus Inc.'s mission to build
+            Africa's next generation of artificial intelligence and digital
+            infrastructure.
           </p>
 
           <Link
             href="/leadership"
             className="mt-10 inline-flex items-center gap-3 rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:bg-cyan-400"
           >
-            Meet the Executive Team
+            View Leadership
 
             <ArrowRight className="h-5 w-5" />
 
