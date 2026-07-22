@@ -90,7 +90,7 @@ export const founders: Founder[] = [
     image: "/team/kaliisa.png",
 
     intro:
-      "James Kaliisa oversees Nexus Inc.'s engineering, AI research and technology architecture. A lawyer by training who transitioned into software engineering through self-directed learning, he leads the company's technical vision.",
+      "James Kaliisa leads Nexus Inc.'s engineering, artificial intelligence research and technology strategy. Having studied and practiced law before transitioning into technology, he brings a multidisciplinary perspective to building secure, scalable and intelligent systems for Africa.",
 
     philosophy:
       "Technology should not only solve problems. It should build independence. Africa deserves to own the intelligence, infrastructure and platforms that define its future.",
@@ -109,15 +109,15 @@ export const founders: Founder[] = [
     ],
 
     biography: [
-      "James Kaliisa is the Co-Founder and Chief Technology Officer of Nexus Inc.",
+      "James Kaliisa is the Co-Founder and Chief Technology Officer of Nexus Inc., where he leads the Company's engineering, artificial intelligence research and technology strategy.",
 
-      "Originally trained as a lawyer, he practiced law before transitioning into technology through years of independent study in software engineering, artificial intelligence and systems architecture.",
+      "He studied law and practiced as a legal professional before transitioning into technology, bringing a multidisciplinary perspective to software engineering, systems architecture and artificial intelligence.",
 
-      "He leads the development of Nexus Inc.'s AI platforms, software infrastructure and engineering strategy.",
+      "At Nexus Inc., he oversees the design and development of the Company's AI platforms, enterprise software and digital infrastructure while leading engineering strategy and research initiatives.",
 
-      "His work focuses on designing scalable technologies capable of solving African challenges while reducing dependence on imported digital infrastructure.",
+      "His work focuses on building scalable technologies that strengthen Africa's digital independence through homegrown innovation, resilient infrastructure and responsible artificial intelligence.",
 
-      "His long-term vision is to establish Nexus Inc. among the companies building foundational AI technologies originating from Africa.",
+      "He believes Africa's future competitiveness will depend on its ability to develop, own and export foundational technologies created by African engineers and researchers.",
     ],
 
     expertise: [
