@@ -13,9 +13,9 @@ import { articles } from "@/data/articles";
 import ArticleCard from "@/components/insights/ArticleCard";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export function generateStaticParams() {
@@ -25,8 +25,10 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+
   const article = articles.find(
-    (item) => item.slug === params.slug
+    (item) => item.slug === slug
   );
 
   if (!article) {
@@ -41,9 +43,13 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default function InsightArticle({ params }: PageProps) {
+export default async function InsightArticle({
+  params,
+}: PageProps) {
+  const { slug } = await params;
+
   const article = articles.find(
-    (item) => item.slug === params.slug
+    (item) => item.slug === slug
   );
 
   if (!article) {
@@ -117,6 +123,7 @@ export default function InsightArticle({ params }: PageProps) {
             alt={article.title}
             fill
             priority
+            sizes="100vw"
             className="object-cover"
           />
 
@@ -154,7 +161,7 @@ export default function InsightArticle({ params }: PageProps) {
             Nexus Inc. is proud to showcase the published work of its leadership
             team as part of our broader commitment to advancing thoughtful
             discussions on artificial intelligence, technology, economics and
-            Africa's digital future.
+            Africa&apos;s digital future.
           </p>
 
           {article.externalUrl && (
