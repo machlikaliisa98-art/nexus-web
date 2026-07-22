@@ -10,7 +10,10 @@ import {
 
 import ExpertiseCard from "@/components/leadership/ExpertiseCard";
 import Publications from "@/components/leadership/Publications";
+import Timeline from "@/components/leadership/Timeline";
+
 import { publications } from "@/components/leadership/publications";
+import { timelineEvents } from "@/components/leadership/timelines";
 
 interface PageProps {
   params: {
@@ -52,6 +55,10 @@ export default function ExecutiveProfile({ params }: PageProps) {
     (article) => article.author === founder.slug
   );
 
+  const founderTimeline = timelineEvents.filter(
+    (event) => event.author === founder.slug
+  );
+
   return (
     <main className="min-h-screen bg-black text-white">
 
@@ -71,6 +78,8 @@ export default function ExecutiveProfile({ params }: PageProps) {
 
           <div className="mt-14 grid items-center gap-16 lg:grid-cols-[380px_1fr]">
 
+            {/* Portrait */}
+
             <div className="flex justify-center">
 
               <div className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 shadow-2xl">
@@ -87,6 +96,8 @@ export default function ExecutiveProfile({ params }: PageProps) {
               </div>
 
             </div>
+
+            {/* Hero Content */}
 
             <div>
 
@@ -114,7 +125,7 @@ export default function ExecutiveProfile({ params }: PageProps) {
 
       </section>
 
-      {/* Body */}
+      {/* Main Content */}
 
       <section className="mx-auto max-w-7xl px-6 py-24">
 
@@ -152,6 +163,10 @@ export default function ExecutiveProfile({ params }: PageProps) {
 
         </section>
 
+        {/* Professional Timeline */}
+
+        <Timeline events={founderTimeline} />
+
         {/* Areas of Expertise */}
 
         <section className="mt-24">
@@ -163,11 +178,13 @@ export default function ExecutiveProfile({ params }: PageProps) {
           <div className="grid gap-6 md:grid-cols-2">
 
             {founder.expertise.map((item) => (
+
               <ExpertiseCard
                 key={item.title}
                 title={item.title}
                 description={item.description}
               />
+
             ))}
 
           </div>
@@ -189,12 +206,14 @@ export default function ExecutiveProfile({ params }: PageProps) {
           <div className="flex flex-wrap gap-4">
 
             {founder.responsibilities.map((item) => (
+
               <span
                 key={item}
                 className="rounded-full border border-zinc-700 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-cyan-500 hover:text-cyan-300"
               >
                 {item}
               </span>
+
             ))}
 
           </div>
@@ -214,16 +233,16 @@ export default function ExecutiveProfile({ params }: PageProps) {
           </h2>
 
           <p className="mt-8 max-w-4xl text-lg leading-9 text-zinc-300">
-            Nexus Inc. believes Africa's future will be defined by its ability
-            to create, own and export world-class technology. Through research,
-            engineering and responsible artificial intelligence, we are building
-            digital infrastructure designed not only to solve today's
-            challenges, but to position Africa as a global leader in innovation.
+            Nexus Inc. believes Africa's future will be shaped by its ability
+            to create, own and export world-class technology. Through
+            artificial intelligence, software engineering and research, we are
+            building digital infrastructure that enables businesses,
+            governments and communities to thrive in the global digital economy.
           </p>
 
         </section>
 
-        {/* CTA */}
+        {/* Leadership CTA */}
 
         <section className="mt-24 rounded-3xl border border-zinc-800 bg-zinc-900 p-10">
 
@@ -232,9 +251,9 @@ export default function ExecutiveProfile({ params }: PageProps) {
           </h2>
 
           <p className="mt-6 max-w-3xl text-lg leading-9 text-zinc-400">
-            Discover the leaders driving Nexus Inc.'s mission to build
-            Africa's next generation of artificial intelligence and digital
-            infrastructure.
+            Learn more about the leaders shaping Nexus Inc.'s mission to build
+            Africa's next generation of artificial intelligence, enterprise
+            software and digital infrastructure.
           </p>
 
           <Link
