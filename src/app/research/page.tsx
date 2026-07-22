@@ -1,85 +1,107 @@
+import PageHero from "../components/PageHero";
+
 export default function ResearchPage() {
   const researchAreas = [
     {
       title: "Artificial Intelligence",
       description:
-        "Designing intelligent systems capable of reasoning, learning, and solving complex real-world challenges.",
+        "Advancing intelligent systems capable of reasoning, learning, decision-making and solving complex real-world challenges.",
     },
     {
       title: "Natural Language Processing",
       description:
-        "Developing multilingual language models and conversational AI tailored for African and global applications.",
+        "Developing multilingual language technologies for translation, summarization, conversational AI and knowledge discovery.",
+    },
+    {
+      title: "Speech & Audio Intelligence",
+      description:
+        "Research in automatic speech recognition, speaker identification, voice synthesis and intelligent audio processing.",
     },
     {
       title: "Computer Vision",
       description:
-        "Creating vision systems that interpret images and video for healthcare, agriculture, security, and industry.",
+        "Building visual intelligence for document understanding, object detection, image recognition and video analytics.",
     },
     {
-      title: "Speech Intelligence",
+      title: "Machine Learning",
       description:
-        "Building advanced speech recognition, synthesis, translation, and voice technologies.",
+        "Designing predictive models that uncover patterns, improve decision-making and continuously learn from data.",
     },
     {
       title: "Responsible AI",
       description:
-        "Ensuring AI systems remain transparent, secure, ethical, and beneficial to society.",
-    },
-    {
-      title: "Digital Infrastructure",
-      description:
-        "Researching scalable cloud and AI infrastructure capable of supporting next-generation intelligent systems.",
+        "Ensuring fairness, transparency, privacy and security remain central to every intelligent system we develop.",
     },
   ];
 
   return (
     <main className="min-h-screen bg-[#050816] text-white">
-      <section className="mx-auto max-w-7xl px-6 py-32">
-        <p
-          className="uppercase tracking-[0.4em] text-sm text-blue-400"
-          style={{ fontFamily: "Arial" }}
-        >
-          RESEARCH
-        </p>
+      <PageHero
+        eyebrow="RESEARCH"
+        title="Research That Shapes Intelligent Systems"
+        description="Scientific discovery is the foundation of every technology developed at Nexus Inc. We transform research into practical innovation that powers intelligent products and contributes to Africa's technological future."
+      />
 
-        <h1
-          className="mt-6 text-5xl md:text-7xl leading-tight"
-          style={{ fontFamily: "Times New Roman, serif" }}
-        >
-          Research That Shapes
-          <br />
-          Intelligent Systems
-        </h1>
+      {/* Research Areas */}
 
-        <p
-          className="mt-10 max-w-4xl text-xl leading-10 text-gray-300"
-          style={{ fontFamily: "Times New Roman, serif" }}
-        >
-          At Nexus Inc., research is the foundation of every technology
-          we build. We combine scientific exploration with practical
-          engineering to develop AI systems that are secure, scalable,
-          and impactful across Africa and beyond.
-        </p>
+      <section className="mx-auto max-w-7xl px-6 py-24">
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+          {researchAreas.map((area) => (
+
+            <div
+              key={area.title}
+              className="rounded-3xl border border-white/10 bg-white/5 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-blue-500 hover:bg-white/10"
+            >
+
+              <div className="mb-6 h-1 w-20 rounded-full bg-blue-500"></div>
+
+              <h2
+                className="mb-5 text-3xl text-white"
+                style={{ fontFamily: "Times New Roman, serif" }}
+              >
+                {area.title}
+              </h2>
+
+              <p className="leading-8 text-gray-300">
+                {area.description}
+              </p>
+
+            </div>
+
+          ))}
+
+        </div>
+
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-8 px-6 pb-32 md:grid-cols-2 lg:grid-cols-3">
-        {researchAreas.map((area) => (
-          <div
-            key={area.title}
-            className="rounded-3xl border border-white/10 bg-white/5 p-8 transition hover:border-blue-500 hover:bg-white/10"
-          >
-            <h2
-              className="mb-5 text-2xl"
-              style={{ fontFamily: "Times New Roman, serif" }}
-            >
-              {area.title}
-            </h2>
+      {/* Closing */}
 
-            <p className="leading-8 text-gray-300">
-              {area.description}
-            </p>
-          </div>
-        ))}
+      <section className="border-t border-white/10 py-24">
+
+        <div className="mx-auto max-w-5xl px-6 text-center">
+
+          <h2
+            className="text-4xl md:text-5xl text-white"
+            style={{ fontFamily: "Times New Roman, serif" }}
+          >
+            From Discovery to Deployment
+          </h2>
+
+          <p
+            className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-gray-300"
+            style={{ fontFamily: "Times New Roman, serif" }}
+          >
+            At Nexus Inc., research is more than academic exploration—it
+            is the engine behind every platform, every intelligent model,
+            and every innovation we bring to the market. Our commitment
+            is to transform scientific knowledge into technologies that
+            solve meaningful problems and create lasting impact.
+          </p>
+
+        </div>
+
       </section>
     </main>
   );
