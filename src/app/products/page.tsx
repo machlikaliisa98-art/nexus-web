@@ -1,77 +1,138 @@
+import PageHero from "../components/PageHero";
+
 export default function ProductsPage() {
   const products = [
     {
       name: "Nexus Atlas",
-      subtitle: "AI for Smart Agriculture",
+      category: "Artificial Intelligence for Agriculture",
       description:
-        "An intelligent platform that empowers farmers with precision agriculture, predictive analytics, crop monitoring, and data-driven decision support.",
+        "An intelligent agriculture platform that combines artificial intelligence, predictive analytics and data-driven insights to support farmers, agribusinesses and policymakers with smarter decisions.",
+      highlights: [
+        "Predictive crop intelligence",
+        "AI-powered decision support",
+        "Data-driven farm insights",
+      ],
     },
     {
       name: "Nexus Link",
-      subtitle: "Financial Infrastructure",
+      category: "Financial Infrastructure",
       description:
-        "A digital infrastructure platform connecting banks, insurers, and mobile money agents through intelligent liquidity management, fraud detection, and business analytics.",
+        "A financial infrastructure platform connecting banks, insurers and mobile money agents through intelligent liquidity management, analytics and secure digital services.",
+      highlights: [
+        "Agent liquidity management",
+        "Bank integration",
+        "Real-time analytics",
+      ],
     },
     {
       name: "LexVision",
-      subtitle: "Legal Intelligence",
+      category: "Legal Intelligence",
       description:
-        "An AI-powered legal research and business intelligence platform that enables faster legal analysis, document review, compliance, and decision-making.",
+        "An AI-powered legal intelligence platform that enhances legal research, document analysis, compliance and organizational knowledge management.",
+      highlights: [
+        "Legal research",
+        "Document intelligence",
+        "Compliance support",
+      ],
     },
   ];
 
   return (
     <main className="min-h-screen bg-[#050816] text-white">
-      <section className="mx-auto max-w-7xl px-6 py-32">
-        <p
-          className="uppercase tracking-[0.4em] text-sm text-blue-400"
-          style={{ fontFamily: "Arial" }}
-        >
-          PRODUCTS
-        </p>
+      <PageHero
+        eyebrow="PRODUCTS"
+        title="Products Built on Research"
+        description="Every Nexus platform is the result of scientific research, engineering excellence and a commitment to solving meaningful challenges across industries."
+      />
 
-        <h1
-          className="mt-6 text-5xl md:text-7xl leading-tight"
-          style={{ fontFamily: "Times New Roman, serif" }}
-        >
-          Intelligent Products
-          <br />
-          Built for Real Impact
-        </h1>
+      {/* Products */}
 
-        <p
-          className="mt-10 max-w-4xl text-xl leading-10 text-gray-300"
-          style={{ fontFamily: "Times New Roman, serif" }}
-        >
-          Every Nexus product is built from our research foundation,
-          combining artificial intelligence, secure infrastructure,
-          and enterprise-grade engineering to solve meaningful
-          challenges across industries.
-        </p>
+      <section className="mx-auto max-w-7xl px-6 py-24">
+
+        <div className="space-y-10">
+
+          {products.map((product) => (
+            <div
+              key={product.name}
+              className="rounded-3xl border border-white/10 bg-white/5 p-10 transition-all duration-300 hover:border-blue-500 hover:bg-white/10"
+            >
+              <div className="grid gap-10 lg:grid-cols-[2fr_1fr]">
+
+                <div>
+                  <p className="uppercase tracking-[0.3em] text-sm text-blue-400">
+                    {product.category}
+                  </p>
+
+                  <h2
+                    className="mt-4 text-5xl"
+                    style={{ fontFamily: "Times New Roman, serif" }}
+                  >
+                    {product.name}
+                  </h2>
+
+                  <p
+                    className="mt-8 text-lg leading-9 text-gray-300"
+                    style={{ fontFamily: "Times New Roman, serif" }}
+                  >
+                    {product.description}
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-[#0A1022] p-8">
+                  <h3
+                    className="text-2xl"
+                    style={{ fontFamily: "Times New Roman, serif" }}
+                  >
+                    Key Capabilities
+                  </h3>
+
+                  <ul className="mt-6 space-y-4">
+                    {product.highlights.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-3 text-gray-300"
+                      >
+                        <span className="mt-2 h-2 w-2 rounded-full bg-blue-500" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          ))}
+
+        </div>
+
       </section>
 
-      <section className="mx-auto max-w-7xl space-y-10 px-6 pb-32">
-        {products.map((product) => (
-          <div
-            key={product.name}
-            className="rounded-3xl border border-white/10 bg-white/5 p-10 transition-all duration-300 hover:border-blue-500 hover:bg-white/10"
+      {/* Closing Statement */}
+
+      <section className="border-t border-white/10 py-24">
+
+        <div className="mx-auto max-w-5xl px-6 text-center">
+
+          <h2
+            className="text-4xl md:text-5xl"
+            style={{ fontFamily: "Times New Roman, serif" }}
           >
-            <p className="mb-3 uppercase tracking-widest text-blue-400 text-sm">
-              {product.subtitle}
-            </p>
+            Built Today. Ready for Tomorrow.
+          </h2>
 
-            <h2
-              className="text-4xl"
-              style={{ fontFamily: "Times New Roman, serif" }}
-            >
-              {product.name}
-            </h2>
+          <p
+            className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-gray-300"
+            style={{ fontFamily: "Times New Roman, serif" }}
+          >
+            Every Nexus product shares the same foundation: rigorous
+            research, responsible artificial intelligence, scalable
+            engineering and a commitment to delivering practical impact.
+            As our research evolves, so do the capabilities of every
+            platform we build.
+          </p>
 
-            <p className="mt-6 max-w-4xl leading-9 text-gray-300">
-              {product.description}
-            </p>
-          </div>
-        ))}
+        </div>
+
       </section>
     </main>
   );
