@@ -1,44 +1,50 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
 
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/research", label: "Research" },
-  { href: "/technologies", label: "Technologies" },
-  { href: "/products", label: "Products" },
-  { href: "/leadership", label: "Leadership" },
-  { href: "/board", label: "Board" },
-  { href: "/insights", label: "Insights" },
-  { href: "/contact", label: "Contact" },
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Research", href: "/research" },
+  { name: "Technologies", href: "/technologies" },
+  { name: "Products", href: "/products" },
+  { name: "Leadership", href: "/leadership" },
+  { name: "Board", href: "/board" },
+  { name: "Insights", href: "/insights" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
 
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
 
-    onScroll();
+    handleScroll();
 
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "border-b border-white/10 bg-[#050816]/90 backdrop-blur-xl"
+            ? "border-b border-white/10 bg-[#050816]/85 backdrop-blur-xl"
             : "bg-transparent"
         }`}
       >
@@ -46,43 +52,51 @@ export default function Navbar() {
 
           {/* Logo */}
 
-          <Link
-            href="/"
-            className="text-2xl font-semibold tracking-wide text-white"
-            style={{ fontFamily: "Times New Roman, serif" }}
-          >
-            Nexus
+          <Link href="/" className="flex items-center">
+
+            <Image
+              src="/logo.png"
+              alt="Nexus Inc."
+              width={170}
+              height={48}
+              priority
+              className="h-10 w-auto"
+            />
+
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Menu */}
 
-          <nav className="hidden items-center gap-8 lg:flex">
-            {links.map((link) => {
+          <nav className="hidden lg:flex items-center gap-8">
+
+            {navigation.map((item) => {
+
               const active =
-                pathname === link.href ||
-                (link.href !== "/" && pathname.startsWith(link.href));
+                pathname === item.href ||
+                (item.href !== "/" && pathname.startsWith(item.href));
 
               return (
                 <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`transition ${
+                  key={item.href}
+                  href={item.href}
+                  className={`transition duration-300 ${
                     active
                       ? "text-blue-400"
                       : "text-gray-300 hover:text-white"
                   }`}
                 >
-                  {link.label}
+                  {item.name}
                 </Link>
               );
             })}
+
           </nav>
 
           {/* CTA */}
 
           <Link
             href="/contact"
-            className="hidden rounded-full bg-blue-600 px-6 py-3 transition hover:bg-blue-500 lg:inline-flex"
+            className="hidden lg:inline-flex rounded-full bg-blue-600 px-6 py-3 transition hover:bg-blue-500"
           >
             Get in Touch
           </Link>
@@ -90,55 +104,58 @@ export default function Navbar() {
           {/* Mobile Button */}
 
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="text-white lg:hidden"
-            aria-label="Toggle navigation menu"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="lg:hidden text-white text-3xl"
+            aria-label="Toggle Menu"
           >
-            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+            {menuOpen ? "✕" : "☰"}
           </button>
 
         </div>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Navigation */}
 
-      <div
-        className={`fixed inset-0 z-40 bg-[#050816] transition-transform duration-300 lg:hidden ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="flex h-full flex-col justify-center gap-8 px-10">
+      {menuOpen && (
+        <div className="fixed inset-0 z-40 bg-[#050816] lg:hidden">
 
-          {links.map((link) => {
-            const active =
-              pathname === link.href ||
-              (link.href !== "/" && pathname.startsWith(link.href));
+          <div className="flex h-full flex-col items-center justify-center gap-8">
 
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className={`text-3xl ${
-                  active ? "text-blue-400" : "text-white"
-                }`}
-                style={{ fontFamily: "Times New Roman, serif" }}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+            {navigation.map((item) => {
 
-          <Link
-            href="/contact"
-            onClick={() => setMobileOpen(false)}
-            className="mt-6 inline-flex w-fit rounded-full bg-blue-600 px-8 py-4"
-          >
-            Get in Touch
-          </Link>
+              const active =
+                pathname === item.href ||
+                (item.href !== "/" && pathname.startsWith(item.href));
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-3xl transition ${
+                    active
+                      ? "text-blue-400"
+                      : "text-white"
+                  }`}
+                  style={{
+                    fontFamily: "Times New Roman, serif",
+                  }}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+
+            <Link
+              href="/contact"
+              className="mt-6 rounded-full bg-blue-600 px-8 py-4"
+            >
+              Get in Touch
+            </Link>
+
+          </div>
 
         </div>
-      </div>
+      )}
     </>
   );
 }
