@@ -1,38 +1,32 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Technologies from "./components/Technologies";
 import Research from "./components/Research";
-import WhyNexus from "./components/WhyNexus";
-import Board from "./components/Board";
-import Leadership from "./components/Leadership";
+import Technologies from "./components/Technologies";
 import Insights from "./components/Insights";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0B0F19] text-white">
+    <main className="min-h-screen bg-[#050816] text-white">
       <Navbar />
 
+      {/* Hero */}
       <Hero />
 
+      {/* About Preview */}
       <About />
 
-      <Technologies />
-
+      {/* Research Preview */}
       <Research />
 
-      <WhyNexus />
+      {/* Technologies Preview */}
+      <Technologies />
 
-      <Board />
-
-      <Leadership />
-
+      {/* Latest Insights */}
       <Insights />
 
-      <Contact />
-
+      {/* Footer */}
       <Footer />
     </main>
   );
