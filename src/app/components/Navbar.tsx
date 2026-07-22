@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -24,15 +23,13 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
 
-    handleScroll();
+    onScroll();
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", onScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -44,33 +41,25 @@ export default function Navbar() {
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "border-b border-white/10 bg-[#050816]/85 backdrop-blur-xl"
+            ? "border-b border-zinc-800 bg-black/85 backdrop-blur-xl"
             : "bg-transparent"
         }`}
       >
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
-          {/* Logo */}
+          {/* Wordmark */}
 
-          <Link href="/" className="flex items-center">
-
-            <Image
-              src="/logo.png"
-              alt="Nexus Inc."
-              width={170}
-              height={48}
-              priority
-              className="h-10 w-auto"
-            />
-
+          <Link
+            href="/"
+            className="text-xl font-bold tracking-[0.3em] text-white transition hover:text-cyan-400"
+          >
+            NEXUS INC.
           </Link>
 
-          {/* Desktop Menu */}
+          {/* Desktop */}
 
-          <nav className="hidden lg:flex items-center gap-8">
-
+          <nav className="hidden items-center gap-8 lg:flex">
             {navigation.map((item) => {
-
               const active =
                 pathname === item.href ||
                 (item.href !== "/" && pathname.startsWith(item.href));
@@ -79,50 +68,43 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`transition duration-300 ${
+                  className={`transition ${
                     active
-                      ? "text-blue-400"
-                      : "text-gray-300 hover:text-white"
+                      ? "text-cyan-400"
+                      : "text-zinc-400 hover:text-white"
                   }`}
                 >
                   {item.name}
                 </Link>
               );
             })}
-
           </nav>
 
           {/* CTA */}
 
           <Link
             href="/contact"
-            className="hidden lg:inline-flex rounded-full bg-blue-600 px-6 py-3 transition hover:bg-blue-500"
+            className="hidden rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:bg-cyan-400 lg:inline-flex"
           >
             Get in Touch
           </Link>
 
-          {/* Mobile Button */}
+          {/* Mobile */}
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden text-white text-3xl"
-            aria-label="Toggle Menu"
+            className="text-3xl text-white lg:hidden"
           >
             {menuOpen ? "✕" : "☰"}
           </button>
-
         </div>
       </header>
 
-      {/* Mobile Navigation */}
-
       {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#050816] lg:hidden">
-
+        <div className="fixed inset-0 z-40 bg-black lg:hidden">
           <div className="flex h-full flex-col items-center justify-center gap-8">
 
             {navigation.map((item) => {
-
               const active =
                 pathname === item.href ||
                 (item.href !== "/" && pathname.startsWith(item.href));
@@ -131,14 +113,11 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-3xl transition ${
+                  className={`text-3xl ${
                     active
-                      ? "text-blue-400"
+                      ? "text-cyan-400"
                       : "text-white"
                   }`}
-                  style={{
-                    fontFamily: "Times New Roman, serif",
-                  }}
                 >
                   {item.name}
                 </Link>
@@ -147,13 +126,12 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className="mt-6 rounded-full bg-blue-600 px-8 py-4"
+              className="mt-8 rounded-xl bg-cyan-500 px-8 py-4 font-semibold text-black"
             >
               Get in Touch
             </Link>
 
           </div>
-
         </div>
       )}
     </>
