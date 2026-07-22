@@ -1,105 +1,68 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-white/10 bg-[#050816]">
-      {/* Background Glow */}
-      <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-blue-600/10 blur-3xl" />
+    <section
+      id="home"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#050816] px-6"
+    >
+      {/* Ambient Glow */}
+      <div className="absolute left-1/2 top-1/2 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/10 blur-[180px]" />
 
-      <div className="relative mx-auto flex min-h-[92vh] max-w-7xl items-center px-8">
-        <div className="max-w-5xl">
-          <p className="text-xs uppercase tracking-[0.45em] text-blue-400">
-            NEXUS INC.
-          </p>
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center text-center">
 
-          <h1
-            className="mt-8 text-6xl leading-tight md:text-7xl lg:text-8xl"
-            style={{ fontFamily: "Times New Roman, serif" }}
+        {/* Logo */}
+        <Image
+          src="/images/logo-full.png"
+          alt="Nexus Inc."
+          width={720}
+          height={180}
+          priority
+          className="mb-14 w-full max-w-[620px]"
+        />
+
+        {/* Heading */}
+        <h1
+          className="max-w-5xl text-5xl font-normal leading-tight text-white md:text-7xl"
+          style={{ fontFamily: "Times New Roman, serif" }}
+        >
+          Building the Next Generation of
+          <span className="block mt-2 text-blue-400">
+            Intelligent Systems
+          </span>
+        </h1>
+
+        {/* Description */}
+        <p
+          className="mt-10 max-w-4xl text-xl leading-10 text-gray-300"
+          style={{ fontFamily: "Times New Roman, serif" }}
+        >
+          Nexus Inc. is a Rwandan deep technology company advancing
+          artificial intelligence through world-class research,
+          enterprise software and intelligent infrastructure that
+          empowers governments, businesses and society.
+        </p>
+
+        {/* Buttons */}
+        <div className="mt-14 flex flex-wrap justify-center gap-6">
+
+          <Link
+            href="/research"
+            className="rounded-full bg-blue-600 px-10 py-4 text-lg transition duration-300 hover:bg-blue-500"
           >
-            Building the Next Generation of
-            <span className="block text-blue-400">
-              Intelligent Systems
-            </span>
-          </h1>
+            Explore Research
+          </Link>
 
-          <p className="mt-10 max-w-4xl text-xl leading-10 text-gray-300">
-            Nexus Inc. is a Rwandan deep technology company advancing
-            artificial intelligence through world class research,
-            enterprise software and intelligent infrastructure that
-            empowers governments, businesses and society.
-          </p>
+          <Link
+            href="/products"
+            className="rounded-full border border-white/20 px-10 py-4 text-lg transition duration-300 hover:border-blue-400"
+          >
+            Explore Products
+          </Link>
 
-          <div className="mt-12 flex flex-wrap gap-5">
-            <Link
-              href="/research"
-              className="rounded-full bg-blue-600 px-8 py-4 text-lg transition hover:bg-blue-500"
-            >
-              Explore Research
-            </Link>
-
-            <Link
-              href="/products"
-              className="rounded-full border border-white/20 px-8 py-4 text-lg transition hover:border-blue-400"
-            >
-              Explore Products
-            </Link>
-          </div>
-
-          {/* Statistics */}
-          <div className="mt-24 grid grid-cols-2 gap-10 border-t border-white/10 pt-12 md:grid-cols-4">
-            <div>
-              <h3
-                className="text-4xl"
-                style={{ fontFamily: "Times New Roman, serif" }}
-              >
-                AI
-              </h3>
-
-              <p className="mt-3 text-gray-400">
-                Research Driven
-              </p>
-            </div>
-
-            <div>
-              <h3
-                className="text-4xl"
-                style={{ fontFamily: "Times New Roman, serif" }}
-              >
-                Enterprise
-              </h3>
-
-              <p className="mt-3 text-gray-400">
-                Intelligent Platforms
-              </p>
-            </div>
-
-            <div>
-              <h3
-                className="text-4xl"
-                style={{ fontFamily: "Times New Roman, serif" }}
-              >
-                Africa
-              </h3>
-
-              <p className="mt-3 text-gray-400">
-                Built in Rwanda
-              </p>
-            </div>
-
-            <div>
-              <h3
-                className="text-4xl"
-                style={{ fontFamily: "Times New Roman, serif" }}
-              >
-                Future
-              </h3>
-
-              <p className="mt-3 text-gray-400">
-                Responsible Innovation
-              </p>
-            </div>
-          </div>
         </div>
+
       </div>
     </section>
   );
