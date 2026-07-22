@@ -1,3 +1,5 @@
+import PageHero from "../components/PageHero";
+
 export default function TechnologiesPage() {
   const technologies = [
     {
@@ -34,37 +36,14 @@ export default function TechnologiesPage() {
 
   return (
     <main className="min-h-screen bg-[#050816] text-white">
-      {/* Hero */}
-      <section className="mx-auto max-w-7xl px-6 py-32">
-        <p
-          className="uppercase tracking-[0.4em] text-sm text-blue-400"
-          style={{ fontFamily: "Arial" }}
-        >
-          TECHNOLOGIES
-        </p>
-
-        <h1
-          className="mt-6 text-5xl md:text-7xl leading-tight"
-          style={{ fontFamily: "Times New Roman, serif" }}
-        >
-          Engineering
-          <br />
-          Intelligence at Scale
-        </h1>
-
-        <p
-          className="mt-10 max-w-4xl text-xl leading-10 text-gray-300"
-          style={{ fontFamily: "Times New Roman, serif" }}
-        >
-          Nexus technologies combine artificial intelligence, advanced
-          software engineering, cloud computing and scientific research
-          to create intelligent systems that are reliable, secure and
-          scalable for governments, enterprises and communities.
-        </p>
-      </section>
+      <PageHero
+        eyebrow="TECHNOLOGIES"
+        title="Engineering Intelligence at Scale"
+        description="Artificial intelligence, advanced software engineering, cloud infrastructure, and scientific research working together to power the next generation of intelligent systems across Africa and beyond."
+      />
 
       {/* Technology Grid */}
-      <section className="mx-auto grid max-w-7xl gap-8 px-6 pb-32 md:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto grid max-w-7xl gap-8 px-6 py-24 md:grid-cols-2 lg:grid-cols-3">
         {technologies.map((tech) => (
           <div
             key={tech.title}
@@ -73,7 +52,7 @@ export default function TechnologiesPage() {
             <div className="mb-6 h-1 w-20 rounded-full bg-blue-500"></div>
 
             <h2
-              className="mb-5 text-3xl"
+              className="mb-5 text-3xl text-white"
               style={{ fontFamily: "Times New Roman, serif" }}
             >
               {tech.title}
@@ -90,7 +69,7 @@ export default function TechnologiesPage() {
       <section className="border-t border-white/10 py-24">
         <div className="mx-auto max-w-5xl px-6 text-center">
           <h2
-            className="text-4xl md:text-5xl"
+            className="text-4xl md:text-5xl text-white"
             style={{ fontFamily: "Times New Roman, serif" }}
           >
             Technology Built for Tomorrow
