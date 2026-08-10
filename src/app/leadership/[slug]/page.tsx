@@ -10,10 +10,8 @@ import {
 
 import ExpertiseCard from "@/components/leadership/ExpertiseCard";
 import Publications from "@/components/leadership/Publications";
-import Timeline from "@/components/leadership/Timeline";
 
 import { publications } from "@/components/leadership/publications";
-import { timelineEvents } from "@/components/leadership/timelines";
 
 interface PageProps {
   params: Promise<{
@@ -63,10 +61,6 @@ export default async function ExecutiveProfile({
     (article) => article.author === founder.slug
   );
 
-  const founderTimeline = timelineEvents.filter(
-    (event) => event.author === founder.slug
-  );
-
   return (
     <main className="min-h-screen bg-black text-white">
 
@@ -86,6 +80,8 @@ export default async function ExecutiveProfile({
 
           <div className="mt-14 grid items-center gap-16 lg:grid-cols-[380px_1fr]">
 
+            {/* Portrait */}
+
             <div className="flex justify-center">
 
               <div className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 shadow-2xl">
@@ -102,6 +98,8 @@ export default async function ExecutiveProfile({
               </div>
 
             </div>
+
+            {/* Hero Content */}
 
             <div>
 
@@ -129,7 +127,11 @@ export default async function ExecutiveProfile({
 
       </section>
 
+      {/* Main Content */}
+
       <section className="mx-auto max-w-7xl px-6 py-24">
+
+        {/* Leadership Philosophy */}
 
         <div className="rounded-3xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-10">
 
@@ -142,6 +144,8 @@ export default async function ExecutiveProfile({
           </blockquote>
 
         </div>
+
+        {/* Executive Overview */}
 
         <section className="mt-24">
 
@@ -161,7 +165,7 @@ export default async function ExecutiveProfile({
 
         </section>
 
-        <Timeline events={founderTimeline} />
+        {/* Areas of Expertise */}
 
         <section className="mt-24">
 
@@ -185,7 +189,15 @@ export default async function ExecutiveProfile({
 
         </section>
 
-        <Publications publications={founderPublications} />
+        {/* Publications */}
+
+        {founderPublications.length > 0 && (
+          <Publications
+            publications={founderPublications}
+          />
+        )}
+
+        {/* Executive Responsibilities */}
 
         <section className="mt-24">
 
@@ -210,6 +222,8 @@ export default async function ExecutiveProfile({
 
         </section>
 
+        {/* Vision */}
+
         <section className="mt-24 rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-zinc-900 to-zinc-950 p-10">
 
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">
@@ -229,6 +243,8 @@ export default async function ExecutiveProfile({
           </p>
 
         </section>
+
+        {/* Leadership CTA */}
 
         <section className="mt-24 rounded-3xl border border-zinc-800 bg-zinc-900 p-10">
 
