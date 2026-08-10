@@ -9,7 +9,7 @@ import {
 } from "@/components/leadership";
 
 import ExpertiseCard from "@/components/leadership/ExpertiseCard";
-import Publications from "@/components/leadership/Publications";
+import Publications from "@/components/leadership/PublicationsComponent";
 
 import { publications } from "@/components/leadership/publications";
 
@@ -92,6 +92,7 @@ export default async function ExecutiveProfile({
                   width={450}
                   height={560}
                   priority
+                  sizes="(max-width: 1024px) 100vw, 380px"
                   className="h-auto w-full object-cover transition duration-500 hover:scale-105"
                 />
 
@@ -176,13 +177,11 @@ export default async function ExecutiveProfile({
           <div className="grid gap-6 md:grid-cols-2">
 
             {founder.expertise.map((item) => (
-
               <ExpertiseCard
                 key={item.title}
                 title={item.title}
                 description={item.description}
               />
-
             ))}
 
           </div>
@@ -192,9 +191,11 @@ export default async function ExecutiveProfile({
         {/* Publications */}
 
         {founderPublications.length > 0 && (
-          <Publications
-            publications={founderPublications}
-          />
+          <section className="mt-24">
+            <Publications
+              publications={founderPublications}
+            />
+          </section>
         )}
 
         {/* Executive Responsibilities */}
@@ -208,14 +209,12 @@ export default async function ExecutiveProfile({
           <div className="flex flex-wrap gap-4">
 
             {founder.responsibilities.map((item) => (
-
               <span
                 key={item}
                 className="rounded-full border border-zinc-700 bg-zinc-900 px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-cyan-500 hover:text-cyan-300"
               >
                 {item}
               </span>
-
             ))}
 
           </div>
