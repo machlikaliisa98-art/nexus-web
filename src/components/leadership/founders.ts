@@ -109,11 +109,11 @@ export const founders: Founder[] = [
     ],
 
     biography: [
-      "James Kaliisa is the Co-Founder and Chief Technology Officer of Nexus Inc., where he leads the Company's engineering, artificial intelligence research and technology strategy.",
+      "James Kaliisa is the Co-Founder and Chief Technology Officer of Nexus Inc., where he leads the company's engineering, artificial intelligence research and technology strategy.",
 
       "He studied law and practiced as a legal professional before transitioning into technology, bringing a multidisciplinary perspective to software engineering, systems architecture and artificial intelligence.",
 
-      "At Nexus Inc., he oversees the design and development of the Company's AI platforms, enterprise software and digital infrastructure while leading engineering strategy and research initiatives.",
+      "At Nexus Inc., he oversees the design and development of the company's AI platforms, enterprise software and digital infrastructure while leading engineering strategy and research initiatives.",
 
       "His work focuses on building scalable technologies that strengthen Africa's digital independence through homegrown innovation, resilient infrastructure and responsible artificial intelligence.",
 
