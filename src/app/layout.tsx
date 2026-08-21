@@ -12,10 +12,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://www.nexusinc.ai";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL("https://nexus-web-nu-eight.vercel.app"),
 
   title: {
     default: "Nexus Inc. | African Deep Technology Company",
@@ -45,16 +43,12 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Nexus Inc.",
-      url: siteUrl,
+      url: "https://nexus-web-nu-eight.vercel.app",
     },
   ],
 
   creator: "Nexus Inc.",
   publisher: "Nexus Inc.",
-
-  alternates: {
-    canonical: siteUrl,
-  },
 
   robots: {
     index: true,
@@ -62,20 +56,24 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
-      "max-video-preview": -1,
     },
   },
 
+  alternates: {
+    canonical: "https://nexus-web-nu-eight.vercel.app",
+  },
+
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteUrl,
-    siteName: "Nexus Inc.",
     title: "Nexus Inc. | African Deep Technology Company",
     description:
       "Nexus Inc. builds sovereign artificial intelligence, digital infrastructure, and enterprise platforms for Africa and the global digital economy.",
+    url: "https://nexus-web-nu-eight.vercel.app",
+    siteName: "Nexus Inc.",
+    locale: "en_US",
+    type: "website",
   },
 
   twitter: {
@@ -84,15 +82,6 @@ export const metadata: Metadata = {
     description:
       "Nexus Inc. builds sovereign artificial intelligence, digital infrastructure, and enterprise platforms for Africa and the global digital economy.",
   },
-};
-
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Nexus Inc.",
-  url: siteUrl,
-  description:
-    "Nexus Inc. is an African deep technology company building sovereign artificial intelligence, digital infrastructure, and enterprise platforms for Africa and the global digital economy.",
 };
 
 export default function RootLayout({
@@ -105,15 +94,6 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
-      </head>
-
       <body>{children}</body>
     </html>
   );
