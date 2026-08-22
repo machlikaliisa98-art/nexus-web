@@ -14,33 +14,42 @@ export default function Hero() {
         {/* Logo */}
         <Image
           src="/images/logo-full.png"
-          alt="Nexus Inc."
+          alt="Nexus Inc. — Rwandan African Deep Technology Company"
           width={720}
           height={180}
           priority
           className="mt-16 mb-14 w-full max-w-[620px]"
         />
 
-        {/* Heading */}
+        {/* Main Heading */}
         <h1
           className="max-w-5xl text-5xl font-normal leading-tight text-white md:text-7xl"
           style={{ fontFamily: "Times New Roman, serif" }}
         >
           Building the Next Generation of
-          <span className="block mt-2 text-blue-400">
+          <span className="mt-2 block text-blue-400">
             Intelligent Systems
           </span>
         </h1>
 
-        {/* Description */}
+        {/* Company Description */}
         <p
           className="mt-10 max-w-4xl text-xl leading-10 text-gray-300"
           style={{ fontFamily: "Times New Roman, serif" }}
         >
-          Nexus Inc. is a Rwandan deep technology company advancing
-          artificial intelligence through world-class research,
-          enterprise software and intelligent infrastructure that
-          empowers governments, businesses and society.
+          Nexus Inc. is a Rwandan deep technology company building
+          artificial intelligence, digital infrastructure and enterprise
+          platforms for Africa and the global digital economy.
+        </p>
+
+        {/* Supporting Statement */}
+        <p
+          className="mt-6 max-w-3xl text-base leading-8 text-gray-400"
+          style={{ fontFamily: "Times New Roman, serif" }}
+        >
+          Through research, software engineering and intelligent systems,
+          Nexus Inc. develops technologies designed to strengthen Africa's
+          capacity to create, own and deploy advanced technology.
         </p>
 
         {/* Buttons */}
