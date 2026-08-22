@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     "Nexus Inc.",
     "Nexus Inc Rwanda",
     "Nexus Rwanda",
-    "African deep technology",
+    "African Deep Technology",
     "Artificial Intelligence",
     "Africa AI",
-    "AI research",
+    "AI Research",
     "Machine Learning",
     "Digital Infrastructure",
     "Enterprise Software",
@@ -51,14 +51,13 @@ export const metadata: Metadata = {
 
   creator: "Nexus Inc.",
   publisher: "Nexus Inc.",
-
   applicationName: "Nexus Inc.",
-
   category: "technology",
 
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -74,17 +73,24 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "Nexus Inc. | African Deep Technology Company",
+
     description:
       "Nexus Inc. is a Rwandan deep technology company building artificial intelligence, digital infrastructure and enterprise platforms for Africa and the global digital economy.",
+
     url: SITE_URL,
+
     siteName: "Nexus Inc.",
+
     locale: "en_US",
+
     type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
+
     title: "Nexus Inc. | African Deep Technology Company",
+
     description:
       "Nexus Inc. is a Rwandan deep technology company building artificial intelligence, digital infrastructure and enterprise platforms for Africa and the global digital economy.",
   },
@@ -92,6 +98,7 @@ export const metadata: Metadata = {
 
 const organizationSchema = {
   "@context": "https://schema.org",
+
   "@type": "Organization",
 
   "@id": `${SITE_URL}/#organization`,
@@ -129,17 +136,25 @@ const organizationSchema = {
   employee: [
     {
       "@type": "Person",
+
       name: "Andrew Kyamagero",
+
       jobTitle: "Co-Founder & Chief Executive Officer",
     },
+
     {
       "@type": "Person",
+
       name: "James Kaliisa",
+
       jobTitle: "Co-Founder & Chief Technology Officer",
     },
+
     {
       "@type": "Person",
+
       name: "Qassim Abdul Karim",
+
       jobTitle: "Co-Founder & Chief Product Officer",
     },
   ],
