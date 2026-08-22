@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+const SITE_URL = "https://nexus-web-nu-eight.vercel.app";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -13,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nexus-web-nu-eight.vercel.app"),
+  metadataBase: new URL(SITE_URL),
 
   title: {
     default: "Nexus Inc. | African Deep Technology Company",
@@ -21,20 +23,20 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Nexus Inc. is an African deep technology company building sovereign artificial intelligence, digital infrastructure, and enterprise platforms for Africa and the global digital economy.",
+    "Nexus Inc. is a Rwandan deep technology company building artificial intelligence, digital infrastructure and enterprise platforms for Africa and the global digital economy.",
 
   keywords: [
     "Nexus Inc.",
-    "Nexus Inc AI",
-    "Nexus AI",
-    "African Artificial Intelligence",
-    "Africa AI",
+    "Nexus Inc Rwanda",
+    "Nexus Rwanda",
+    "African deep technology",
     "Artificial Intelligence",
+    "Africa AI",
+    "AI research",
     "Machine Learning",
     "Digital Infrastructure",
     "Enterprise Software",
-    "AI Research",
-    "Deep Technology",
+    "AI Infrastructure",
     "African Technology",
     "Nexus Link",
     "AI Studio",
@@ -43,12 +45,16 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Nexus Inc.",
-      url: "https://nexus-web-nu-eight.vercel.app",
+      url: SITE_URL,
     },
   ],
 
   creator: "Nexus Inc.",
   publisher: "Nexus Inc.",
+
+  applicationName: "Nexus Inc.",
+
+  category: "technology",
 
   robots: {
     index: true,
@@ -63,14 +69,14 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://nexus-web-nu-eight.vercel.app",
+    canonical: SITE_URL,
   },
 
   openGraph: {
     title: "Nexus Inc. | African Deep Technology Company",
     description:
-      "Nexus Inc. builds sovereign artificial intelligence, digital infrastructure, and enterprise platforms for Africa and the global digital economy.",
-    url: "https://nexus-web-nu-eight.vercel.app",
+      "Nexus Inc. is a Rwandan deep technology company building artificial intelligence, digital infrastructure and enterprise platforms for Africa and the global digital economy.",
+    url: SITE_URL,
     siteName: "Nexus Inc.",
     locale: "en_US",
     type: "website",
@@ -80,8 +86,63 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nexus Inc. | African Deep Technology Company",
     description:
-      "Nexus Inc. builds sovereign artificial intelligence, digital infrastructure, and enterprise platforms for Africa and the global digital economy.",
+      "Nexus Inc. is a Rwandan deep technology company building artificial intelligence, digital infrastructure and enterprise platforms for Africa and the global digital economy.",
   },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+
+  "@id": `${SITE_URL}/#organization`,
+
+  name: "Nexus Inc.",
+
+  legalName: "Nexus Inc.",
+
+  url: SITE_URL,
+
+  description:
+    "Nexus Inc. is a Rwandan deep technology company building artificial intelligence, digital infrastructure and enterprise platforms for Africa and the global digital economy.",
+
+  foundingLocation: {
+    "@type": "Place",
+    name: "Kigali, Rwanda",
+  },
+
+  areaServed: {
+    "@type": "Continent",
+    name: "Africa",
+  },
+
+  knowsAbout: [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Artificial Intelligence Research",
+    "Digital Infrastructure",
+    "Enterprise Software",
+    "AI Systems",
+    "Technology",
+    "Deep Technology",
+  ],
+
+  employee: [
+    {
+      "@type": "Person",
+      name: "Andrew Kyamagero",
+      jobTitle: "Co-Founder & Chief Executive Officer",
+    },
+    {
+      "@type": "Person",
+      name: "James Kaliisa",
+      jobTitle: "Co-Founder & Chief Technology Officer",
+    },
+    {
+      "@type": "Person",
+      name: "Qassim Abdul Karim",
+      jobTitle: "Co-Founder & Chief Product Officer",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -94,6 +155,15 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+      </head>
+
       <body>{children}</body>
     </html>
   );
