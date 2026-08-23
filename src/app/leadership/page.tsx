@@ -7,7 +7,7 @@ import {
 export const metadata = {
   title: "Executive Leadership | Nexus Inc.",
   description:
-    "Meet the executive leadership team driving Nexus Inc.'s mission to redefine Africa's role in the global AI race.",
+    "Meet the executive leadership team of Nexus Inc., a Rwandan deep technology company building artificial intelligence, digital infrastructure and enterprise platforms for Africa.",
 };
 
 export default function LeadershipPage() {

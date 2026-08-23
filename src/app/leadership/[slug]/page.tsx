@@ -13,6 +13,8 @@ import Publications from "@/components/leadership/PublicationsComponent";
 
 import { publications } from "@/components/leadership/publications";
 
+const SITE_URL = "https://nexus-web-nu-eight.vercel.app";
+
 interface PageProps {
   params: Promise<{
     slug: string;
@@ -38,9 +40,29 @@ export async function generateMetadata({ params }: PageProps) {
     };
   }
 
+  const profileUrl = `${SITE_URL}/leadership/${founder.slug}`;
+
   return {
     title: `${founder.name} | Nexus Inc.`,
     description: founder.intro,
+
+    alternates: {
+      canonical: profileUrl,
+    },
+
+    openGraph: {
+      title: `${founder.name} | Nexus Inc.`,
+      description: founder.intro,
+      url: profileUrl,
+      siteName: "Nexus Inc.",
+      type: "profile",
+      images: [
+        {
+          url: founder.image,
+          alt: `${founder.name} — ${founder.title}`,
+        },
+      ],
+    },
   };
 }
 
@@ -61,13 +83,61 @@ export default async function ExecutiveProfile({
     (article) => article.author === founder.slug
   );
 
+  const profileUrl = `${SITE_URL}/leadership/${founder.slug}`;
+  const imageUrl = `${SITE_URL}${founder.image}`;
+
+  const personSchema = {
+    "@context": "https://schema.org",
+
+    "@type": "Person",
+
+    "@id": `${profileUrl}/#person`,
+
+    name: founder.name,
+
+    url: profileUrl,
+
+    image: imageUrl,
+
+    jobTitle: founder.title
+      .replace("Co-Founder & ", "")
+      .trim(),
+
+    worksFor: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Nexus Inc.",
+      url: SITE_URL,
+    },
+
+    memberOf: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Nexus Inc.",
+      url: SITE_URL,
+    },
+
+    description: founder.intro,
+
+    knowsAbout: founder.expertise.map(
+      (item) => item.title
+    ),
+  };
+
   return (
     <main className="min-h-screen bg-black text-white">
+      {/* Person Structured Data */}
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personSchema),
+        }}
+      />
 
       {/* Hero */}
 
       <section className="border-b border-zinc-900 bg-gradient-to-b from-zinc-950 via-black to-black">
-
         <div className="mx-auto max-w-7xl px-6 py-20">
 
           <Link
@@ -88,7 +158,7 @@ export default async function ExecutiveProfile({
 
                 <Image
                   src={founder.image}
-                  alt={founder.name}
+                  alt={`${founder.name} — ${founder.title} at Nexus Inc.`}
                   width={450}
                   height={560}
                   priority
@@ -125,7 +195,6 @@ export default async function ExecutiveProfile({
           </div>
 
         </div>
-
       </section>
 
       {/* Main Content */}
@@ -141,7 +210,7 @@ export default async function ExecutiveProfile({
           </h2>
 
           <blockquote className="mt-6 border-l-4 border-cyan-500 pl-6 text-2xl italic leading-10 text-cyan-300">
-            "{founder.philosophy}"
+            &quot;{founder.philosophy}&quot;
           </blockquote>
 
         </div>
@@ -192,9 +261,11 @@ export default async function ExecutiveProfile({
 
         {founderPublications.length > 0 && (
           <section className="mt-24">
+
             <Publications
               publications={founderPublications}
             />
+
           </section>
         )}
 
@@ -234,11 +305,12 @@ export default async function ExecutiveProfile({
           </h2>
 
           <p className="mt-8 max-w-4xl text-lg leading-9 text-zinc-300">
-            Nexus Inc. believes Africa's future will be shaped by its ability
-            to create, own and export world-class technology. Through
-            artificial intelligence, software engineering and research, we are
-            building digital infrastructure that enables businesses,
-            governments and communities to thrive in the global digital economy.
+            Nexus Inc. believes Africa&apos;s future will be shaped by its
+            ability to create, own and export world-class technology.
+            Through artificial intelligence, software engineering and
+            research, we are building digital infrastructure that enables
+            businesses, governments and communities to thrive in the global
+            digital economy.
           </p>
 
         </section>
@@ -252,9 +324,9 @@ export default async function ExecutiveProfile({
           </h2>
 
           <p className="mt-6 max-w-3xl text-lg leading-9 text-zinc-400">
-            Learn more about the leaders shaping Nexus Inc.'s mission to build
-            Africa's next generation of artificial intelligence, enterprise
-            software and digital infrastructure.
+            Learn more about the leaders shaping Nexus Inc.&apos;s mission to
+            build Africa&apos;s next generation of artificial intelligence,
+            enterprise software and digital infrastructure.
           </p>
 
           <Link
