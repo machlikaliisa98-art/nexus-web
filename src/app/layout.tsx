@@ -96,6 +96,22 @@ export const metadata: Metadata = {
   },
 };
 
+/*
+|--------------------------------------------------------------------------
+| Nexus Inc. Organization Entity
+|--------------------------------------------------------------------------
+|
+| This is the central entity that connects:
+|
+| Nexus Inc.
+|   ├── Andrew Kyamagero — CEO
+|   ├── James Kaliisa — CTO
+|   └── Qassim Abdul Karim — CPO
+|
+| Individual executive pages reference this same organization @id.
+|
+*/
+
 const organizationSchema = {
   "@context": "https://schema.org",
 
@@ -114,11 +130,23 @@ const organizationSchema = {
 
   foundingLocation: {
     "@type": "Place",
+
+    "@id": `${SITE_URL}/#kigali`,
+
     name: "Kigali, Rwanda",
+
+    address: {
+      "@type": "PostalAddress",
+
+      addressLocality: "Kigali",
+
+      addressCountry: "RW",
+    },
   },
 
   areaServed: {
     "@type": "Continent",
+
     name: "Africa",
   },
 
@@ -137,25 +165,53 @@ const organizationSchema = {
     {
       "@type": "Person",
 
-      name: "Andrew Kyamagero",
-
-      jobTitle: "Co-Founder & Chief Executive Officer",
+      "@id":
+        `${SITE_URL}/leadership/andrew-kyamagero/#person`,
     },
 
     {
       "@type": "Person",
 
-      name: "James Kaliisa",
-
-      jobTitle: "Co-Founder & Chief Technology Officer",
+      "@id":
+        `${SITE_URL}/leadership/james-kaliisa/#person`,
     },
 
     {
       "@type": "Person",
 
-      name: "Qassim Abdul Karim",
+      "@id":
+        `${SITE_URL}/leadership/qassim-abdul-karim/#person`,
+    },
+  ],
 
-      jobTitle: "Co-Founder & Chief Product Officer",
+  founder: [
+    {
+      "@type": "Person",
+
+      "@id":
+        `${SITE_URL}/leadership/andrew-kyamagero/#person`,
+    },
+
+    {
+      "@type": "Person",
+
+      "@id":
+        `${SITE_URL}/leadership/james-kaliisa/#person`,
+    },
+
+    {
+      "@type": "Person",
+
+      "@id":
+        `${SITE_URL}/leadership/qassim-abdul-karim/#person`,
+    },
+  ],
+
+  subOrganization: [
+    {
+      "@type": "Organization",
+
+      name: "Nexus AI",
     },
   ],
 };
