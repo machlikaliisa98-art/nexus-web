@@ -13,6 +13,12 @@ export interface Founder {
   responsibilities: string[];
   biography: string[];
   expertise: Expertise[];
+
+  /**
+   * Public profiles used to establish the identity
+   * of the executive across trusted platforms.
+   */
+  sameAs?: string[];
 }
 
 export const founders: Founder[] = [
@@ -62,21 +68,37 @@ export const founders: Founder[] = [
         description:
           "Leads the company's long-term strategic direction and organizational growth.",
       },
+
       {
         title: "Artificial Intelligence",
         description:
           "Shapes Nexus Inc.'s AI vision while contributing to AI research initiatives.",
       },
+
       {
         title: "Partnership Development",
         description:
           "Builds strategic relationships with governments, investors and enterprise partners.",
       },
+
       {
         title: "Executive Leadership",
         description:
           "Provides executive leadership across the organization while driving strategic execution.",
       },
+    ],
+
+    /*
+     * Andrew Kyamagero's public profiles.
+     *
+     * These are attached to Andrew's Person entity rather
+     * than to Nexus Inc.'s Organization entity.
+     */
+    sameAs: [
+      "https://www.tiktok.com/@kyamagerodaily",
+      "https://x.com/kyamageroandrew",
+      "https://www.facebook.com/omuntuwawansiofficial/",
+      "https://au.linkedin.com/in/andrew-kyamagero-a8790157",
     ],
   },
 
@@ -126,16 +148,19 @@ export const founders: Founder[] = [
         description:
           "Leads AI architecture, research and deployment across Nexus platforms.",
       },
+
       {
         title: "Software Engineering",
         description:
           "Designs scalable software systems and enterprise-grade platforms.",
       },
+
       {
         title: "Systems Architecture",
         description:
           "Engineers secure, resilient and scalable technology infrastructure.",
       },
+
       {
         title: "Research & Development",
         description:
@@ -189,16 +214,19 @@ export const founders: Founder[] = [
         description:
           "Aligns product vision with business objectives and customer needs.",
       },
+
       {
         title: "User Experience",
         description:
           "Designs intuitive and accessible digital experiences.",
       },
+
       {
         title: "AI Product Design",
         description:
           "Transforms AI research into practical enterprise products.",
       },
+
       {
         title: "Innovation",
         description:

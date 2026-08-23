@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: PageProps) {
 
   return {
     title: `${founder.name} | Nexus Inc.`,
+
     description: founder.intro,
 
     alternates: {
@@ -55,6 +56,7 @@ export async function generateMetadata({ params }: PageProps) {
       description: founder.intro,
       url: profileUrl,
       siteName: "Nexus Inc.",
+      locale: "en_US",
       type: "profile",
       images: [
         {
@@ -62,6 +64,13 @@ export async function generateMetadata({ params }: PageProps) {
           alt: `${founder.name} — ${founder.title}`,
         },
       ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: `${founder.name} | Nexus Inc.`,
+      description: founder.intro,
+      images: [founder.image],
     },
   };
 }
@@ -83,8 +92,19 @@ export default async function ExecutiveProfile({
     (article) => article.author === founder.slug
   );
 
-  const profileUrl = `${SITE_URL}/leadership/${founder.slug}`;
-  const imageUrl = `${SITE_URL}${founder.image}`;
+  const profileUrl =
+    `${SITE_URL}/leadership/${founder.slug}`;
+
+  const imageUrl =
+    `${SITE_URL}${founder.image}`;
+
+  /*
+   * Person entity
+   *
+   * Each executive gets their own machine-readable identity.
+   * The Person is connected back to the same Nexus Inc.
+   * Organization entity defined in the root layout.
+   */
 
   const personSchema = {
     "@context": "https://schema.org",
@@ -99,21 +119,32 @@ export default async function ExecutiveProfile({
 
     image: imageUrl,
 
-    jobTitle: founder.title
-      .replace("Co-Founder & ", "")
-      .trim(),
+    jobTitle:
+      founder.slug === "andrew-kyamagero"
+        ? "Chief Executive Officer"
+        : founder.slug === "james-kaliisa"
+        ? "Chief Technology Officer"
+        : founder.slug === "qassim-abdul-karim"
+        ? "Chief Product Officer"
+        : founder.title,
 
     worksFor: {
       "@type": "Organization",
+
       "@id": `${SITE_URL}/#organization`,
+
       name: "Nexus Inc.",
+
       url: SITE_URL,
     },
 
     memberOf: {
       "@type": "Organization",
+
       "@id": `${SITE_URL}/#organization`,
+
       name: "Nexus Inc.",
+
       url: SITE_URL,
     },
 
@@ -122,10 +153,17 @@ export default async function ExecutiveProfile({
     knowsAbout: founder.expertise.map(
       (item) => item.title
     ),
+
+    ...(founder.sameAs?.length
+      ? {
+          sameAs: founder.sameAs,
+        }
+      : {}),
   };
 
   return (
     <main className="min-h-screen bg-black text-white">
+
       {/* Person Structured Data */}
 
       <script
@@ -138,6 +176,7 @@ export default async function ExecutiveProfile({
       {/* Hero */}
 
       <section className="border-b border-zinc-900 bg-gradient-to-b from-zinc-950 via-black to-black">
+
         <div className="mx-auto max-w-7xl px-6 py-20">
 
           <Link
@@ -145,6 +184,7 @@ export default async function ExecutiveProfile({
             className="inline-flex items-center gap-2 text-zinc-400 transition hover:text-cyan-400"
           >
             <ArrowLeft className="h-4 w-4" />
+
             Back to Leadership
           </Link>
 
@@ -195,6 +235,7 @@ export default async function ExecutiveProfile({
           </div>
 
         </div>
+
       </section>
 
       {/* Main Content */}
