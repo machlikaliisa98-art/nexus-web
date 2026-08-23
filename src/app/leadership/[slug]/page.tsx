@@ -19,6 +19,15 @@ interface PageProps {
   }>;
 }
 
+const SITE_URL = "https://nexus-web-nu-eight.vercel.app";
+
+const ANDREW_SOCIAL_PROFILES = [
+  "https://www.tiktok.com/@kyamagerodaily",
+  "https://x.com/kyamageroandrew?lang=en",
+  "https://www.facebook.com/omuntuwawansiofficial/",
+  "https://au.linkedin.com/in/andrew-kyamagero-a8790157",
+];
+
 export function generateStaticParams() {
   return founders.map((founder) => ({
     slug: founder.slug,
@@ -45,9 +54,9 @@ export async function generateMetadata({ params }: PageProps) {
      * The root layout already applies:
      * "%s | Nexus Inc."
      *
-     * Therefore this must be only the person's name.
-     * Final title:
+     * Therefore we provide only the person's name here.
      *
+     * Final title:
      * Andrew Kyamagero | Nexus Inc.
      */
     title: founder.name,
@@ -55,14 +64,14 @@ export async function generateMetadata({ params }: PageProps) {
     description: founder.intro,
 
     alternates: {
-      canonical: `/leadership/${founder.slug}`,
+      canonical: `${SITE_URL}/leadership/${founder.slug}`,
     },
 
     openGraph: {
       title: `${founder.name} | Nexus Inc.`,
       description: founder.intro,
       type: "profile",
-      url: `/leadership/${founder.slug}`,
+      url: `${SITE_URL}/leadership/${founder.slug}`,
       siteName: "Nexus Inc.",
       images: founder.image
         ? [
@@ -80,7 +89,9 @@ export async function generateMetadata({ params }: PageProps) {
       card: "summary_large_image",
       title: `${founder.name} | Nexus Inc.`,
       description: founder.intro,
-      images: founder.image ? [founder.image] : undefined,
+      images: founder.image
+        ? [founder.image]
+        : undefined,
     },
 
     robots: {
@@ -114,8 +125,90 @@ export default async function ExecutiveProfile({
     (article) => article.author === founder.slug
   );
 
+  /*
+   * Person structured data
+   *
+   * We specifically connect Andrew's established public profiles
+   * to his Nexus Inc. executive identity.
+   */
+  const isAndrew =
+    founder.name.toLowerCase().includes("andrew") &&
+    founder.name.toLowerCase().includes("kyamagero");
+
+  const personSchema = isAndrew
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": `${SITE_URL}/leadership/${founder.slug}#person`,
+
+        name: founder.name,
+
+        url: `${SITE_URL}/leadership/${founder.slug}`,
+
+        image: founder.image
+          ? `${SITE_URL}${founder.image.startsWith("/") ? "" : "/"}${founder.image}`
+          : undefined,
+
+        jobTitle: founder.title,
+
+        description: founder.intro,
+
+        worksFor: {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: "Nexus Inc.",
+          url: SITE_URL,
+        },
+
+        memberOf: {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: "Nexus Inc.",
+        },
+
+        sameAs: ANDREW_SOCIAL_PROFILES,
+      }
+    : {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": `${SITE_URL}/leadership/${founder.slug}#person`,
+
+        name: founder.name,
+
+        url: `${SITE_URL}/leadership/${founder.slug}`,
+
+        image: founder.image
+          ? `${SITE_URL}${founder.image.startsWith("/") ? "" : "/"}${founder.image}`
+          : undefined,
+
+        jobTitle: founder.title,
+
+        description: founder.intro,
+
+        worksFor: {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: "Nexus Inc.",
+          url: SITE_URL,
+        },
+
+        memberOf: {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: "Nexus Inc.",
+        },
+      };
+
   return (
     <main className="min-h-screen bg-black text-white">
+
+      {/* Person structured data for search engines */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personSchema),
+        }}
+      />
 
       {/* =========================================================
           EXECUTIVE HERO
@@ -291,7 +384,7 @@ export default async function ExecutiveProfile({
         </section>
 
         {/* =======================================================
-            NEXUS INC. / AFRICA VISION
+            VISION FOR AFRICA
         ======================================================= */}
 
         <section className="mt-24 rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-zinc-900 to-zinc-950 p-10">
