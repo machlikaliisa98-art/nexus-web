@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,6 +13,8 @@ import {
 import { articles } from "@/data/articles";
 import ArticleCard from "@/components/insights/ArticleCard";
 
+const SITE_URL = "https://nexusinc.rw";
+
 interface PageProps {
   params: Promise<{
     slug: string;
@@ -24,7 +27,9 @@ export function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
 
   const article = articles.find(
@@ -33,13 +38,47 @@ export async function generateMetadata({ params }: PageProps) {
 
   if (!article) {
     return {
-      title: "Insights | Nexus Inc.",
+      title: "Insights",
+      description:
+        "Nexus Insights publishes research, engineering perspectives, economic analysis and thought leadership on artificial intelligence, digital infrastructure and innovation across Africa.",
+      alternates: {
+        canonical: `${SITE_URL}/insights`,
+      },
     };
   }
 
+  const title = `${article.title} | Nexus Insights`;
+  const description = article.summary;
+  const url = `${SITE_URL}/insights/${article.slug}`;
+
   return {
-    title: `${article.title} | Nexus Insights`,
-    description: article.summary,
+    title,
+    description,
+
+    alternates: {
+      canonical: url,
+    },
+
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "Nexus Inc.",
+      type: "article",
+      images: [
+        {
+          url: article.cover,
+          alt: article.title,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [article.cover],
+    },
   };
 }
 
@@ -66,13 +105,10 @@ export default async function InsightArticle({
 
   return (
     <main className="bg-black text-white">
-
       {/* Hero */}
 
       <section className="border-b border-zinc-900">
-
         <div className="mx-auto max-w-5xl px-6 py-20">
-
           <Link
             href="/insights"
             className="inline-flex items-center gap-2 text-zinc-400 transition hover:text-cyan-400"
@@ -90,7 +126,6 @@ export default async function InsightArticle({
           </h1>
 
           <div className="mt-10 flex flex-wrap gap-6 text-zinc-500">
-
             <div className="flex items-center gap-2">
               <Newspaper className="h-4 w-4 text-cyan-400" />
               {article.publication}
@@ -105,19 +140,14 @@ export default async function InsightArticle({
               <Clock className="h-4 w-4 text-cyan-400" />
               {article.readingTime}
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       {/* Cover */}
 
       <section className="mx-auto mt-16 max-w-6xl px-6">
-
         <div className="relative h-[500px] overflow-hidden rounded-3xl border border-zinc-800">
-
           <Image
             src={article.cover}
             alt={article.title}
@@ -126,17 +156,13 @@ export default async function InsightArticle({
             sizes="100vw"
             className="object-cover"
           />
-
         </div>
-
       </section>
 
       {/* Summary */}
 
       <section className="mx-auto max-w-4xl px-6 py-20">
-
         <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-10">
-
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">
             Executive Summary
           </p>
@@ -144,13 +170,11 @@ export default async function InsightArticle({
           <p className="mt-8 text-xl leading-10 text-zinc-300">
             {article.summary}
           </p>
-
         </div>
 
         {/* Publication Notice */}
 
         <div className="mt-16 rounded-3xl border border-cyan-500/30 bg-cyan-500/10 p-10">
-
           <h2 className="text-2xl font-bold">
             Originally Published
           </h2>
@@ -174,20 +198,15 @@ export default async function InsightArticle({
               Read Original Publication
 
               <ArrowUpRight className="h-5 w-5" />
-
             </Link>
           )}
-
         </div>
-
       </section>
 
       {/* Related Articles */}
 
       {relatedArticles.length > 0 && (
-
         <section className="mx-auto max-w-7xl px-6 pb-24">
-
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">
             Continue Reading
           </p>
@@ -197,22 +216,15 @@ export default async function InsightArticle({
           </h2>
 
           <div className="mt-14 grid gap-10 lg:grid-cols-3">
-
             {relatedArticles.map((related) => (
-
               <ArticleCard
                 key={related.slug}
                 article={related}
               />
-
             ))}
-
           </div>
-
         </section>
-
       )}
-
     </main>
   );
 }

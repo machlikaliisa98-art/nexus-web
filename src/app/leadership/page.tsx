@@ -1,13 +1,31 @@
+import type { Metadata } from "next";
 import {
   FounderCard,
   FounderStory,
   founders,
 } from "@/components/leadership";
 
-export const metadata = {
-  title: "Executive Leadership | Nexus Inc.",
+export const metadata: Metadata = {
+  title: "Executive Leadership",
   description:
     "Meet the executive leadership team of Nexus Inc., a Rwandan deep technology company building artificial intelligence, digital infrastructure and enterprise platforms for Africa.",
+  alternates: {
+    canonical: "https://nexusinc.rw/leadership",
+  },
+  openGraph: {
+    title: "Executive Leadership | Nexus Inc.",
+    description:
+      "Meet the executive leadership team of Nexus Inc., a Rwandan deep technology company building artificial intelligence, digital infrastructure and enterprise platforms for Africa.",
+    url: "https://nexusinc.rw/leadership",
+    siteName: "Nexus Inc.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Executive Leadership | Nexus Inc.",
+    description:
+      "Meet the executive leadership team of Nexus Inc., a Rwandan deep technology company building artificial intelligence, digital infrastructure and enterprise platforms for Africa.",
+  },
 };
 
 export default function LeadershipPage() {
