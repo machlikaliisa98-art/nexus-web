@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -5,16 +6,76 @@ import { notFound } from "next/navigation";
 import { boardPositions } from "@/components/board";
 
 interface BoardMemberPageProps {
-  params: {
+  params: Promise<{
     slug: string;
+  }>;
+}
+
+export function generateStaticParams() {
+  return boardPositions.map((position) => ({
+    slug: position.slug,
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: BoardMemberPageProps): Promise<Metadata> {
+  const { slug } = await params;
+
+  const director = boardPositions.find(
+    (position) => position.slug === slug
+  );
+
+  if (!director) {
+    return {
+      title: "Board of Directors",
+      description:
+        "Nexus Inc. Board of Directors and governance structure.",
+      alternates: {
+        canonical: "https://nexusinc.rw/board",
+      },
+    };
+  }
+
+  const title = `${director.title} | Nexus Inc.`;
+  const description = director.summary;
+  const url = `https://nexusinc.rw/board/${director.slug}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "Nexus Inc.",
+      type: "profile",
+      images: [
+        {
+          url: director.image,
+          alt: director.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [director.image],
+    },
   };
 }
 
-export default function BoardMemberPage({
+export default async function BoardMemberPage({
   params,
 }: BoardMemberPageProps) {
+  const { slug } = await params;
+
   const director = boardPositions.find(
-    (position) => position.slug === params.slug
+    (position) => position.slug === slug
   );
 
   if (!director) {

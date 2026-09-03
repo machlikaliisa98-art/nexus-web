@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import {
   GovernancePrinciples,
   BoardComposition,
@@ -6,6 +8,29 @@ import {
   BoardTimeline,
   BoardCTA,
 } from "@/components/board";
+
+export const metadata: Metadata = {
+  title: "Board of Directors",
+  description:
+    "Meet the Board of Directors and governance structure of Nexus Inc., providing independent oversight, strategic direction and responsible governance for the company's long-term growth.",
+  alternates: {
+    canonical: "https://nexusinc.rw/board",
+  },
+  openGraph: {
+    title: "Board of Directors | Nexus Inc.",
+    description:
+      "Meet the Board of Directors and governance structure of Nexus Inc., providing independent oversight, strategic direction and responsible governance for the company's long-term growth.",
+    url: "https://nexusinc.rw/board",
+    siteName: "Nexus Inc.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Board of Directors | Nexus Inc.",
+    description:
+      "Meet the Board of Directors and governance structure of Nexus Inc., providing independent oversight, strategic direction and responsible governance for the company's long-term growth.",
+  },
+};
 
 export default function BoardPage() {
   return (
