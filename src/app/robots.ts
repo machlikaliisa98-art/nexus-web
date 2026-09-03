@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl = "https://nexus-web-nu-eight.vercel.app";
+const baseUrl = "https://nexusinc.rw";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,6 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
+
     sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

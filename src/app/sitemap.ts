@@ -1,72 +1,84 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl = "https://nexus-web-nu-eight.vercel.app";
+const baseUrl = "https://nexusinc.rw";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 1,
     },
+
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
+
     {
       url: `${baseUrl}/leadership`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
+
     {
       url: `${baseUrl}/board`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
+
     {
       url: `${baseUrl}/products`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
+
     {
       url: `${baseUrl}/products/ai-studio`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
+
     {
       url: `${baseUrl}/products/nexus-link`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
+
     {
       url: `${baseUrl}/research`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
+
     {
       url: `${baseUrl}/technologies`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
+
     {
       url: `${baseUrl}/insights`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
     },
+
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const SITE_URL = "https://nexus-web-nu-eight.vercel.app";
+const SITE_URL = "https://nexusinc.rw";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,7 +39,8 @@ export const metadata: Metadata = {
     "AI Infrastructure",
     "African Technology",
     "Nexus Link",
-    "AI Studio",
+    "FONS",
+    "Return for Wisdom",
   ],
 
   authors: [
@@ -101,14 +102,15 @@ export const metadata: Metadata = {
 | Nexus Inc. Organization Entity
 |--------------------------------------------------------------------------
 |
-| This is the central entity that connects:
+| This is the central organization entity used throughout the Nexus Inc.
+| website's structured data.
 |
 | Nexus Inc.
 |   ├── Andrew Kyamagero — CEO
 |   ├── James Kaliisa — CTO
 |   └── Qassim Abdul Karim — CPO
 |
-| Individual executive pages reference this same organization @id.
+| Individual executive pages reference these same organization entities.
 |
 */
 
@@ -165,22 +167,19 @@ const organizationSchema = {
     {
       "@type": "Person",
 
-      "@id":
-        `${SITE_URL}/leadership/andrew-kyamagero/#person`,
+      "@id": `${SITE_URL}/leadership/andrew-kyamagero/#person`,
     },
 
     {
       "@type": "Person",
 
-      "@id":
-        `${SITE_URL}/leadership/james-kaliisa/#person`,
+      "@id": `${SITE_URL}/leadership/james-kaliisa/#person`,
     },
 
     {
       "@type": "Person",
 
-      "@id":
-        `${SITE_URL}/leadership/qassim-abdul-karim/#person`,
+      "@id": `${SITE_URL}/leadership/qassim-abdul-karim/#person`,
     },
   ],
 
@@ -188,22 +187,19 @@ const organizationSchema = {
     {
       "@type": "Person",
 
-      "@id":
-        `${SITE_URL}/leadership/andrew-kyamagero/#person`,
+      "@id": `${SITE_URL}/leadership/andrew-kyamagero/#person`,
     },
 
     {
       "@type": "Person",
 
-      "@id":
-        `${SITE_URL}/leadership/james-kaliisa/#person`,
+      "@id": `${SITE_URL}/leadership/james-kaliisa/#person`,
     },
 
     {
       "@type": "Person",
 
-      "@id":
-        `${SITE_URL}/leadership/qassim-abdul-karim/#person`,
+      "@id": `${SITE_URL}/leadership/qassim-abdul-karim/#person`,
     },
   ],
 
