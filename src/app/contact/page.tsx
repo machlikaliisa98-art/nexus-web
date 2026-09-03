@@ -1,147 +1,98 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Contact Nexus Inc., a Rwandan deep technology company building artificial intelligence, digital infrastructure and enterprise platforms for Africa and the global digital economy.",
+  alternates: {
+    canonical: "https://nexusinc.rw/contact",
+  },
+};
+
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-[#050816] text-white">
+    <main className="min-h-screen bg-black text-white">
       {/* Hero */}
-      <section className="mx-auto max-w-7xl px-6 py-32">
-        <p
-          className="uppercase tracking-[0.4em] text-sm text-blue-400"
-          style={{ fontFamily: "Arial" }}
-        >
-          CONTACT
-        </p>
 
-        <h1
-          className="mt-6 text-5xl md:text-7xl leading-tight"
-          style={{ fontFamily: "Times New Roman, serif" }}
-        >
-          Let's Build the
-          <br />
-          Future Together
-        </h1>
+      <section className="border-b border-zinc-900 bg-gradient-to-b from-zinc-950 via-black to-black">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">
+            Contact Nexus Inc.
+          </p>
 
-        <p
-          className="mt-10 max-w-4xl text-xl leading-10 text-gray-300"
-          style={{ fontFamily: "Times New Roman, serif" }}
-        >
-          Whether you're exploring a partnership, interested in our
-          research, seeking enterprise AI solutions, or considering a
-          career at Nexus Inc., we'd love to hear from you.
-        </p>
+          <h1 className="mt-6 max-w-5xl text-5xl font-bold leading-tight md:text-7xl">
+            Connect with Nexus Inc.
+          </h1>
+
+          <p className="mt-8 max-w-3xl text-xl leading-10 text-zinc-400">
+            For general enquiries, partnerships, technology, research and
+            other matters concerning Nexus Inc., contact our official company
+            email or visit our headquarters in Kigali, Rwanda.
+          </p>
+        </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-16 px-6 pb-32 lg:grid-cols-2">
+      {/* Contact Information */}
 
-        {/* Contact Information */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <div className="grid gap-8 md:grid-cols-2">
+          {/* Official Email */}
 
-        <div>
+          <div className="rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
+              Official Company Email
+            </p>
 
-          <h2
-            className="mb-10 text-4xl"
-            style={{ fontFamily: "Times New Roman, serif" }}
-          >
-            Contact Information
-          </h2>
+            <h2 className="mt-5 text-3xl font-bold">
+              General Enquiries
+            </h2>
 
-          <div className="space-y-8">
+            <p className="mt-6 text-lg leading-9 text-zinc-400">
+              Nexus Inc. uses one official company email for enquiries,
+              partnerships, research, technology and business communication.
+            </p>
 
-            <div>
-              <h3 className="text-blue-400 uppercase tracking-wider">
-                Headquarters
-              </h3>
-
-              <p className="mt-2 leading-8 text-gray-300">
-                Nexus Inc. Limited
-                <br />
-                Norrsken House
-                <br />
-                1 KN 78 St
-                <br />
-                Kigali, Rwanda
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-blue-400 uppercase tracking-wider">
-                Email
-              </h3>
-
-              <p className="mt-2 text-gray-300">
-                info@nexusinc.ai
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-blue-400 uppercase tracking-wider">
-                Partnerships
-              </h3>
-
-              <p className="mt-2 text-gray-300">
-                partnerships@nexusinc.ai
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-blue-400 uppercase tracking-wider">
-                Careers
-              </h3>
-
-              <p className="mt-2 text-gray-300">
-                careers@nexusinc.ai
-              </p>
-            </div>
-
+            <a
+              href="mailto:info@nexusinc.rw"
+              className="mt-8 inline-flex rounded-xl bg-cyan-500 px-7 py-4 text-lg font-semibold text-black transition hover:bg-cyan-400"
+            >
+              info@nexusinc.rw
+            </a>
           </div>
 
-        </div>
+          {/* Company Address */}
 
-        {/* Contact Form */}
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
+              Company Address
+            </p>
 
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-10">
+            <h2 className="mt-5 text-3xl font-bold">
+              Nexus Inc. Headquarters
+            </h2>
 
-          <h2
-            className="mb-8 text-3xl"
-            style={{ fontFamily: "Times New Roman, serif" }}
-          >
-            Send Us a Message
-          </h2>
+            <address className="mt-6 not-italic text-lg leading-9 text-zinc-400">
+              1 KN 78 St
+              <br />
+              Norrsken House
+              <br />
+              Kigali, Rwanda
+            </address>
 
-          <form className="space-y-6">
+            <p className="mt-6 text-lg leading-9 text-zinc-500">
+              Nexus Inc. is headquartered at Norrsken House in Kigali,
+              Rwanda.
+            </p>
 
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="w-full rounded-xl border border-white/10 bg-[#0b1022] px-5 py-4 outline-none focus:border-blue-500"
-            />
-
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="w-full rounded-xl border border-white/10 bg-[#0b1022] px-5 py-4 outline-none focus:border-blue-500"
-            />
-
-            <input
-              type="text"
-              placeholder="Subject"
-              className="w-full rounded-xl border border-white/10 bg-[#0b1022] px-5 py-4 outline-none focus:border-blue-500"
-            />
-
-            <textarea
-              rows={6}
-              placeholder="Your Message"
-              className="w-full rounded-xl border border-white/10 bg-[#0b1022] px-5 py-4 outline-none focus:border-blue-500"
-            ></textarea>
-
-            <button
-              type="submit"
-              className="rounded-full bg-blue-600 px-8 py-4 transition hover:bg-blue-500"
+            <Link
+              href="/"
+              className="mt-8 inline-flex rounded-xl border border-zinc-700 px-7 py-4 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-400"
             >
-              Send Message
-            </button>
-
-          </form>
-
+              Return to Nexus Inc.
+            </Link>
+          </div>
         </div>
-
       </section>
     </main>
   );
