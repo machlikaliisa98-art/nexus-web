@@ -19,7 +19,7 @@ interface PageProps {
   }>;
 }
 
-const SITE_URL = "https://nexus-web-nu-eight.vercel.app";
+const SITE_URL = "https://nexusinc.rw";
 
 const ANDREW_SOCIAL_PROFILES = [
   "https://www.tiktok.com/@kyamagerodaily",
@@ -201,7 +201,6 @@ export default async function ExecutiveProfile({
 
   return (
     <main className="min-h-screen bg-black text-white">
-
       {/* Person structured data for search engines */}
       <script
         type="application/ld+json"
@@ -215,9 +214,7 @@ export default async function ExecutiveProfile({
       ========================================================= */}
 
       <section className="border-b border-zinc-900 bg-gradient-to-b from-zinc-950 via-black to-black">
-
         <div className="mx-auto max-w-7xl px-6 py-20">
-
           <Link
             href="/leadership"
             className="inline-flex items-center gap-2 text-zinc-400 transition hover:text-cyan-400"
@@ -227,13 +224,10 @@ export default async function ExecutiveProfile({
           </Link>
 
           <div className="mt-14 grid items-center gap-16 lg:grid-cols-[380px_1fr]">
-
             {/* Executive Portrait */}
 
             <div className="flex justify-center">
-
               <div className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 shadow-2xl">
-
                 <Image
                   src={founder.image}
                   alt={`${founder.name} — ${founder.title}, Nexus Inc.`}
@@ -243,15 +237,12 @@ export default async function ExecutiveProfile({
                   sizes="(max-width: 1024px) 100vw, 380px"
                   className="h-auto w-full object-cover transition duration-500 hover:scale-105"
                 />
-
               </div>
-
             </div>
 
             {/* Executive Identity */}
 
             <div>
-
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">
                 Nexus Inc. Executive Leadership
               </p>
@@ -267,13 +258,9 @@ export default async function ExecutiveProfile({
               <p className="mt-10 max-w-3xl text-lg leading-9 text-zinc-300">
                 {founder.intro}
               </p>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       {/* =========================================================
@@ -281,9 +268,7 @@ export default async function ExecutiveProfile({
       ========================================================= */}
 
       <section className="mx-auto max-w-7xl px-6 py-24">
-
         <div className="rounded-3xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-10">
-
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">
             Leadership Philosophy
           </p>
@@ -291,7 +276,6 @@ export default async function ExecutiveProfile({
           <blockquote className="mt-6 border-l-4 border-cyan-500 pl-6 text-2xl italic leading-10 text-cyan-300">
             &quot;{founder.philosophy}&quot;
           </blockquote>
-
         </div>
 
         {/* =======================================================
@@ -299,7 +283,6 @@ export default async function ExecutiveProfile({
         ======================================================= */}
 
         <section className="mt-24">
-
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">
             Executive Profile
           </p>
@@ -309,15 +292,12 @@ export default async function ExecutiveProfile({
           </h2>
 
           <div className="space-y-7 text-lg leading-9 text-zinc-300">
-
             {founder.biography.map((paragraph) => (
               <p key={paragraph}>
                 {paragraph}
               </p>
             ))}
-
           </div>
-
         </section>
 
         {/* =======================================================
@@ -325,13 +305,11 @@ export default async function ExecutiveProfile({
         ======================================================= */}
 
         <section className="mt-24">
-
           <h2 className="mb-10 text-4xl font-bold">
             Areas of Expertise
           </h2>
 
           <div className="grid gap-6 md:grid-cols-2">
-
             {founder.expertise.map((item) => (
               <ExpertiseCard
                 key={item.title}
@@ -339,9 +317,7 @@ export default async function ExecutiveProfile({
                 description={item.description}
               />
             ))}
-
           </div>
-
         </section>
 
         {/* =======================================================
@@ -350,11 +326,9 @@ export default async function ExecutiveProfile({
 
         {founderPublications.length > 0 && (
           <section className="mt-24">
-
             <Publications
               publications={founderPublications}
             />
-
           </section>
         )}
 
@@ -363,13 +337,11 @@ export default async function ExecutiveProfile({
         ======================================================= */}
 
         <section className="mt-24">
-
           <h2 className="mb-10 text-4xl font-bold">
             Executive Responsibilities
           </h2>
 
           <div className="flex flex-wrap gap-4">
-
             {founder.responsibilities.map((item) => (
               <span
                 key={item}
@@ -378,9 +350,7 @@ export default async function ExecutiveProfile({
                 {item}
               </span>
             ))}
-
           </div>
-
         </section>
 
         {/* =======================================================
@@ -388,7 +358,6 @@ export default async function ExecutiveProfile({
         ======================================================= */}
 
         <section className="mt-24 rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-zinc-900 to-zinc-950 p-10">
-
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">
             Looking Ahead
           </p>
@@ -405,7 +374,6 @@ export default async function ExecutiveProfile({
             businesses, governments and communities to participate in the
             global digital economy.
           </p>
-
         </section>
 
         {/* =======================================================
@@ -413,7 +381,6 @@ export default async function ExecutiveProfile({
         ======================================================= */}
 
         <section className="mt-24 rounded-3xl border border-zinc-800 bg-zinc-900 p-10">
-
           <h2 className="text-3xl font-bold">
             Meet the Nexus Inc. Executive Team
           </h2>
@@ -431,13 +398,9 @@ export default async function ExecutiveProfile({
             View Leadership
 
             <ArrowRight className="h-5 w-5" />
-
           </Link>
-
         </section>
-
       </section>
-
     </main>
   );
 }
