@@ -1,9 +1,27 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Nexus Link",
   description:
-    "Nexus Link is intelligent financial infrastructure connecting mobile money agents, banks and insurance providers.",
+    "Nexus Link is intelligent financial infrastructure connecting mobile money agents, banks and insurance providers through transaction, liquidity, risk and financial intelligence.",
+  alternates: {
+    canonical: "https://nexusinc.rw/products/nexus-link",
+  },
+  openGraph: {
+    title: "Nexus Link | Nexus Inc.",
+    description:
+      "Nexus Link is intelligent financial infrastructure connecting mobile money agents, banks and insurance providers through transaction, liquidity, risk and financial intelligence.",
+    url: "https://nexusinc.rw/products/nexus-link",
+    siteName: "Nexus Inc.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nexus Link | Nexus Inc.",
+    description:
+      "Nexus Link is intelligent financial infrastructure connecting mobile money agents, banks and insurance providers through transaction, liquidity, risk and financial intelligence.",
+  },
 };
 
 const stages = [
@@ -68,7 +86,7 @@ export default function NexusLinkPage() {
             href="/products"
             className="text-sm text-slate-400 transition hover:text-white"
           >
-            ← Products
+            ΓåÉ Products
           </Link>
 
           <div className="hidden items-center gap-6 text-sm sm:flex">
@@ -76,7 +94,7 @@ export default function NexusLinkPage() {
               href="/products/ai-studio"
               className="text-slate-400 transition hover:text-cyan-400"
             >
-              ← FONS
+              ΓåÉ FONS
             </Link>
           </div>
         </div>
@@ -194,7 +212,7 @@ export default function NexusLinkPage() {
           </div>
 
           <div className="mt-14 space-y-3">
-            {stages.map((stage, index) => (
+            {stages.map((stage) => (
               <div
                 key={stage.number}
                 className="rounded-2xl border border-white/10 bg-white/[0.025] p-6 sm:grid sm:grid-cols-[80px_250px_1fr] sm:items-center sm:gap-5"
@@ -254,7 +272,7 @@ export default function NexusLinkPage() {
                 </div>
 
                 {index < items.length - 1 && (
-                  <span className="text-cyan-400">↓</span>
+                  <span className="text-cyan-400">Γåô</span>
                 )}
               </div>
             ))}
@@ -270,7 +288,7 @@ export default function NexusLinkPage() {
             href="/products/ai-studio"
             className="text-slate-400 transition hover:text-white"
           >
-            ← Previous: FONS
+            ΓåÉ Previous: FONS
           </Link>
 
           <Link
@@ -284,7 +302,7 @@ export default function NexusLinkPage() {
             href="/contact"
             className="text-cyan-400 transition hover:text-cyan-300"
           >
-            Contact Nexus Inc. →
+            Contact Nexus Inc. ΓåÆ
           </Link>
         </div>
       </section>

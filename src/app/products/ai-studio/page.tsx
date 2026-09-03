@@ -1,10 +1,28 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata = {
-  title: "FONS",
+export const metadata: Metadata = {
+  title: "FONS — Return for Wisdom",
   description:
-    "FONS is an AI-powered knowledge platform transforming human conversations into structured, discoverable and accessible knowledge.",
+    "FONS is the knowledge layer for human conversation, transforming podcasts, interviews, discussions and other spoken content into structured, discoverable and accessible knowledge.",
+  alternates: {
+    canonical: "https://nexusinc.rw/products/ai-studio",
+  },
+  openGraph: {
+    title: "FONS — Return for Wisdom | Nexus Inc.",
+    description:
+      "FONS is the knowledge layer for human conversation, transforming podcasts, interviews, discussions and other spoken content into structured, discoverable and accessible knowledge.",
+    url: "https://nexusinc.rw/products/ai-studio",
+    siteName: "Nexus Inc.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FONS — Return for Wisdom | Nexus Inc.",
+    description:
+      "FONS is the knowledge layer for human conversation, transforming podcasts, interviews, discussions and other spoken content into structured, discoverable and accessible knowledge.",
+  },
 };
 
 const productionStages = [
@@ -91,7 +109,7 @@ export default function FonsPage() {
             href="/products"
             className="text-sm text-slate-400 transition hover:text-white"
           >
-            ← Products
+            ΓåÉ Products
           </Link>
 
           <div className="hidden items-center gap-6 text-sm sm:flex">
@@ -99,7 +117,7 @@ export default function FonsPage() {
               href="/products/nexus-link"
               className="text-slate-400 transition hover:text-cyan-400"
             >
-              Next: Nexus Link →
+              Next: Nexus Link ΓåÆ
             </Link>
           </div>
         </div>
@@ -143,7 +161,7 @@ export default function FonsPage() {
 
             <p className="mt-8 max-w-3xl text-lg leading-9 text-slate-300 sm:text-xl">
               FONS transforms human conversations into structured,
-              discoverable and accessible knowledge—helping ideas move across
+              discoverable and accessible knowledgeΓÇöhelping ideas move across
               people, languages, borders and generations.
             </p>
           </div>
@@ -178,8 +196,8 @@ export default function FonsPage() {
               </p>
 
               <p className="font-semibold text-white">
-                The long-term direction is to make the idea—not merely the
-                episode—the fundamental unit of discovery.
+                The long-term direction is to make the ideaΓÇönot merely the
+                episodeΓÇöthe fundamental unit of discovery.
               </p>
             </div>
           </div>
@@ -281,19 +299,19 @@ export default function FonsPage() {
                   Conversation
                 </div>
 
-                <div className="text-cyan-400">↓</div>
+                <div className="text-cyan-400">Γåô</div>
 
                 <div className="rounded-xl border border-white/10 px-4 py-3">
                   Intelligence
                 </div>
 
-                <div className="text-cyan-400">↓</div>
+                <div className="text-cyan-400">Γåô</div>
 
                 <div className="rounded-xl border border-white/10 px-4 py-3">
                   Ideas
                 </div>
 
-                <div className="text-cyan-400">↓</div>
+                <div className="text-cyan-400">Γåô</div>
 
                 <div className="rounded-xl border border-cyan-400/30 bg-cyan-500/10 px-4 py-3 text-cyan-300">
                   Knowledge
@@ -333,9 +351,7 @@ export default function FonsPage() {
                   {stage.number}
                 </span>
 
-                <h3 className="text-xl font-semibold">
-                  {stage.title}
-                </h3>
+                <h3 className="text-xl font-semibold">{stage.title}</h3>
 
                 <p className="leading-8 text-slate-400">
                   {stage.description}
@@ -380,9 +396,7 @@ export default function FonsPage() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
-                <h3 className="mt-5 text-xl font-bold">
-                  {layer.title}
-                </h3>
+                <h3 className="mt-5 text-xl font-bold">{layer.title}</h3>
 
                 <p className="mt-4 text-sm leading-7 text-slate-400">
                   {layer.description}
@@ -403,17 +417,14 @@ export default function FonsPage() {
                 "Audience",
                 "Knowledge",
               ].map((item, index, items) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-3"
-                >
+                <div key={item} className="flex items-center gap-3">
                   <span className="rounded-full border border-white/10 bg-black/20 px-4 py-2 text-sm text-slate-200">
                     {item}
                   </span>
 
                   {index < items.length - 1 && (
                     <span className="hidden text-cyan-400 sm:inline">
-                      →
+                      ΓåÆ
                     </span>
                   )}
                 </div>
@@ -427,7 +438,7 @@ export default function FonsPage() {
 
       <section className="border-b border-white/10">
         <div className="mx-auto max-w-5xl px-6 py-24 text-center sm:py-32">
-          <div className="mx-auto relative h-24 w-24">
+          <div className="relative mx-auto h-24 w-24">
             <Image
               src="/images/products/fons-logo.png"
               alt="FONS"
@@ -463,14 +474,14 @@ export default function FonsPage() {
             href="/products"
             className="text-slate-400 transition hover:text-white"
           >
-            ← All Products
+            ΓåÉ All Products
           </Link>
 
           <Link
             href="/products/nexus-link"
             className="text-cyan-400 transition hover:text-cyan-300"
           >
-            Next: Nexus Link →
+            Next: Nexus Link ΓåÆ
           </Link>
         </div>
       </section>

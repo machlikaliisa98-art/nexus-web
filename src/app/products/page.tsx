@@ -1,10 +1,28 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Products",
   description:
-    "Explore the intelligent platforms being built by Nexus Inc., including FONS and Nexus Link.",
+    "Explore Nexus Inc. products, including FONS — Return for Wisdom and Nexus Link, intelligent platforms for knowledge and financial infrastructure.",
+  alternates: {
+    canonical: "https://nexusinc.rw/products",
+  },
+  openGraph: {
+    title: "Products | Nexus Inc.",
+    description:
+      "Explore Nexus Inc. products, including FONS — Return for Wisdom and Nexus Link, intelligent platforms for knowledge and financial infrastructure.",
+    url: "https://nexusinc.rw/products",
+    siteName: "Nexus Inc.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Products | Nexus Inc.",
+    description:
+      "Explore Nexus Inc. products, including FONS — Return for Wisdom and Nexus Link, intelligent platforms for knowledge and financial infrastructure.",
+  },
 };
 
 export default function ProductsPage() {
@@ -25,7 +43,7 @@ export default function ProductsPage() {
             href="/"
             className="text-sm text-slate-400 transition hover:text-white"
           >
-            ← Back to Home
+            ΓåÉ Back to Home
           </Link>
         </div>
       </header>
@@ -144,7 +162,7 @@ export default function ProductsPage() {
                   href="/products/ai-studio"
                   className="inline-flex rounded-full bg-cyan-500 px-7 py-3 font-semibold text-white transition hover:bg-cyan-400"
                 >
-                  Explore FONS →
+                  Explore FONS ΓåÆ
                 </Link>
               </div>
             </div>
@@ -216,7 +234,7 @@ export default function ProductsPage() {
                   href="/products/nexus-link"
                   className="inline-flex rounded-full bg-cyan-500 px-7 py-3 font-semibold text-white transition hover:bg-cyan-400"
                 >
-                  Explore Nexus Link →
+                  Explore Nexus Link ΓåÆ
                 </Link>
               </div>
             </div>
@@ -232,14 +250,14 @@ export default function ProductsPage() {
             href="/"
             className="text-slate-400 transition hover:text-white"
           >
-            ← Back to Home
+            ΓåÉ Back to Home
           </Link>
 
           <Link
             href="/contact"
             className="text-cyan-400 transition hover:text-cyan-300"
           >
-            Contact Nexus Inc. →
+            Contact Nexus Inc. ΓåÆ
           </Link>
         </div>
       </section>
