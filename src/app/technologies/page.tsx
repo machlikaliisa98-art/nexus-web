@@ -1,4 +1,28 @@
+import type { Metadata } from "next";
 import PageHero from "../components/PageHero";
+
+export const metadata: Metadata = {
+  title: "AI Technologies",
+  description:
+    "Explore the artificial intelligence, language, speech, vision, predictive intelligence and cloud infrastructure technologies powering Nexus Inc. systems.",
+  alternates: {
+    canonical: "https://nexusinc.rw/technologies",
+  },
+  openGraph: {
+    title: "AI Technologies | Nexus Inc.",
+    description:
+      "Explore the artificial intelligence, language, speech, vision, predictive intelligence and cloud infrastructure technologies powering Nexus Inc. systems.",
+    url: "https://nexusinc.rw/technologies",
+    siteName: "Nexus Inc.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Technologies | Nexus Inc.",
+    description:
+      "Explore the artificial intelligence, language, speech, vision, predictive intelligence and cloud infrastructure technologies powering Nexus Inc. systems.",
+  },
+};
 
 export default function TechnologiesPage() {
   const technologies = [
@@ -43,6 +67,7 @@ export default function TechnologiesPage() {
       />
 
       {/* Technology Grid */}
+
       <section className="mx-auto grid max-w-7xl gap-8 px-6 py-24 md:grid-cols-2 lg:grid-cols-3">
         {technologies.map((tech) => (
           <div
@@ -58,14 +83,13 @@ export default function TechnologiesPage() {
               {tech.title}
             </h2>
 
-            <p className="leading-8 text-gray-300">
-              {tech.description}
-            </p>
+            <p className="leading-8 text-gray-300">{tech.description}</p>
           </div>
         ))}
       </section>
 
       {/* Closing Statement */}
+
       <section className="border-t border-white/10 py-24">
         <div className="mx-auto max-w-5xl px-6 text-center">
           <h2

@@ -1,4 +1,28 @@
+import type { Metadata } from "next";
 import PageHero from "../components/PageHero";
+
+export const metadata: Metadata = {
+  title: "About Nexus Inc.",
+  description:
+    "Learn about Nexus Inc., a Rwandan deep technology company advancing artificial intelligence, enterprise software and digital infrastructure for Africa and beyond.",
+  alternates: {
+    canonical: "https://nexusinc.rw/about",
+  },
+  openGraph: {
+    title: "About Nexus Inc.",
+    description:
+      "Learn about Nexus Inc., a Rwandan deep technology company advancing artificial intelligence, enterprise software and digital infrastructure for Africa and beyond.",
+    url: "https://nexusinc.rw/about",
+    siteName: "Nexus Inc.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Nexus Inc.",
+    description:
+      "Learn about Nexus Inc., a Rwandan deep technology company advancing artificial intelligence, enterprise software and digital infrastructure for Africa and beyond.",
+  },
+};
 
 export default function AboutPage() {
   const values = [
@@ -36,7 +60,6 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid gap-16 lg:grid-cols-2">
-
           <div>
             <p className="uppercase tracking-[0.35em] text-sm text-blue-400">
               WHO WE ARE
@@ -58,25 +81,22 @@ export default function AboutPage() {
               style={{ fontFamily: "Times New Roman, serif" }}
             >
               Nexus Inc. exists to transform groundbreaking research into
-              practical technologies that strengthen businesses,
-              institutions and communities. Our work spans artificial
-              intelligence, enterprise software and digital
-              infrastructure, creating solutions that are scalable,
-              secure and built for the future.
+              practical technologies that strengthen businesses, institutions
+              and communities. Our work spans artificial intelligence,
+              enterprise software and digital infrastructure, creating
+              solutions that are scalable, secure and built for the future.
             </p>
 
             <p
               className="mt-8 text-lg leading-9 text-gray-300"
               style={{ fontFamily: "Times New Roman, serif" }}
             >
-              We believe Africa should not only adopt intelligent
-              technologies but also lead their creation. By combining
-              scientific research with world-class engineering, Nexus is
-              contributing to a future where innovation developed on the
-              continent has global relevance.
+              We believe Africa should not only adopt intelligent technologies
+              but also lead their creation. By combining scientific research
+              with world-class engineering, Nexus is contributing to a future
+              where innovation developed on the continent has global relevance.
             </p>
           </div>
-
         </div>
       </section>
 
@@ -84,7 +104,6 @@ export default function AboutPage() {
 
       <section className="border-y border-white/10 bg-white/5 py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2">
-
           <div className="rounded-3xl border border-white/10 bg-[#0A1022] p-10">
             <p className="uppercase tracking-[0.35em] text-sm text-blue-400">
               OUR MISSION
@@ -99,8 +118,8 @@ export default function AboutPage() {
 
             <p className="mt-6 leading-9 text-gray-300">
               To develop intelligent technologies that solve meaningful
-              challenges through scientific research, advanced
-              engineering and responsible artificial intelligence.
+              challenges through scientific research, advanced engineering and
+              responsible artificial intelligence.
             </p>
           </div>
 
@@ -122,14 +141,12 @@ export default function AboutPage() {
               scientific discovery and digital innovation.
             </p>
           </div>
-
         </div>
       </section>
 
       {/* Values */}
 
       <section className="mx-auto max-w-7xl px-6 py-24">
-
         <div className="text-center">
           <p className="uppercase tracking-[0.35em] text-sm text-blue-400">
             OUR VALUES
@@ -144,7 +161,6 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-16 grid gap-8 md:grid-cols-2">
-
           {values.map((value) => (
             <div
               key={value.title}
@@ -162,9 +178,7 @@ export default function AboutPage() {
               </p>
             </div>
           ))}
-
         </div>
-
       </section>
     </main>
   );
