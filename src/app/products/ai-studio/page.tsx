@@ -109,7 +109,7 @@ export default function FonsPage() {
             href="/products"
             className="text-sm text-slate-400 transition hover:text-white"
           >
-            ΓåÉ Products
+            ← Products
           </Link>
 
           <div className="hidden items-center gap-6 text-sm sm:flex">
@@ -117,7 +117,7 @@ export default function FonsPage() {
               href="/products/nexus-link"
               className="text-slate-400 transition hover:text-cyan-400"
             >
-              Next: Nexus Link ΓåÆ
+              Next: Nexus Link →
             </Link>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function FonsPage() {
 
             <p className="mt-8 max-w-3xl text-lg leading-9 text-slate-300 sm:text-xl">
               FONS transforms human conversations into structured,
-              discoverable and accessible knowledgeΓÇöhelping ideas move across
+              discoverable and accessible knowledge—helping ideas move across
               people, languages, borders and generations.
             </p>
           </div>
@@ -196,8 +196,8 @@ export default function FonsPage() {
               </p>
 
               <p className="font-semibold text-white">
-                The long-term direction is to make the ideaΓÇönot merely the
-                episodeΓÇöthe fundamental unit of discovery.
+                The long-term direction is to make the idea—not merely the
+                episode—the fundamental unit of discovery.
               </p>
             </div>
           </div>
@@ -299,19 +299,19 @@ export default function FonsPage() {
                   Conversation
                 </div>
 
-                <div className="text-cyan-400">Γåô</div>
+                <div className="text-cyan-400">“</div>
 
                 <div className="rounded-xl border border-white/10 px-4 py-3">
                   Intelligence
                 </div>
 
-                <div className="text-cyan-400">Γåô</div>
+                <div className="text-cyan-400">“</div>
 
                 <div className="rounded-xl border border-white/10 px-4 py-3">
                   Ideas
                 </div>
 
-                <div className="text-cyan-400">Γåô</div>
+                <div className="text-cyan-400">“</div>
 
                 <div className="rounded-xl border border-cyan-400/30 bg-cyan-500/10 px-4 py-3 text-cyan-300">
                   Knowledge
@@ -424,7 +424,7 @@ export default function FonsPage() {
 
                   {index < items.length - 1 && (
                     <span className="hidden text-cyan-400 sm:inline">
-                      ΓåÆ
+                      →
                     </span>
                   )}
                 </div>
@@ -474,14 +474,14 @@ export default function FonsPage() {
             href="/products"
             className="text-slate-400 transition hover:text-white"
           >
-            ΓåÉ All Products
+            ← All Products
           </Link>
 
           <Link
             href="/products/nexus-link"
             className="text-cyan-400 transition hover:text-cyan-300"
           >
-            Next: Nexus Link ΓåÆ
+            Next: Nexus Link →
           </Link>
         </div>
       </section>

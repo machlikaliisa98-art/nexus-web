@@ -86,7 +86,7 @@ export default function NexusLinkPage() {
             href="/products"
             className="text-sm text-slate-400 transition hover:text-white"
           >
-            ΓåÉ Products
+            ← Products
           </Link>
 
           <div className="hidden items-center gap-6 text-sm sm:flex">
@@ -94,7 +94,7 @@ export default function NexusLinkPage() {
               href="/products/ai-studio"
               className="text-slate-400 transition hover:text-cyan-400"
             >
-              ΓåÉ FONS
+              ← FONS
             </Link>
           </div>
         </div>
@@ -272,7 +272,7 @@ export default function NexusLinkPage() {
                 </div>
 
                 {index < items.length - 1 && (
-                  <span className="text-cyan-400">Γåô</span>
+                  <span className="text-cyan-400">“</span>
                 )}
               </div>
             ))}
@@ -288,7 +288,7 @@ export default function NexusLinkPage() {
             href="/products/ai-studio"
             className="text-slate-400 transition hover:text-white"
           >
-            ΓåÉ Previous: FONS
+            ← Previous: FONS
           </Link>
 
           <Link
@@ -302,7 +302,7 @@ export default function NexusLinkPage() {
             href="/contact"
             className="text-cyan-400 transition hover:text-cyan-300"
           >
-            Contact Nexus Inc. ΓåÆ
+            Contact Nexus Inc. →
           </Link>
         </div>
       </section>

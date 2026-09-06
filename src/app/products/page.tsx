@@ -43,7 +43,7 @@ export default function ProductsPage() {
             href="/"
             className="text-sm text-slate-400 transition hover:text-white"
           >
-            ΓåÉ Back to Home
+            ← Back to Home
           </Link>
         </div>
       </header>
@@ -162,7 +162,7 @@ export default function ProductsPage() {
                   href="/products/ai-studio"
                   className="inline-flex rounded-full bg-cyan-500 px-7 py-3 font-semibold text-white transition hover:bg-cyan-400"
                 >
-                  Explore FONS ΓåÆ
+                  Explore FONS →
                 </Link>
               </div>
             </div>
@@ -234,7 +234,7 @@ export default function ProductsPage() {
                   href="/products/nexus-link"
                   className="inline-flex rounded-full bg-cyan-500 px-7 py-3 font-semibold text-white transition hover:bg-cyan-400"
                 >
-                  Explore Nexus Link ΓåÆ
+                  Explore Nexus Link →
                 </Link>
               </div>
             </div>
@@ -250,14 +250,14 @@ export default function ProductsPage() {
             href="/"
             className="text-slate-400 transition hover:text-white"
           >
-            ΓåÉ Back to Home
+            ← Back to Home
           </Link>
 
           <Link
             href="/contact"
             className="text-cyan-400 transition hover:text-cyan-300"
           >
-            Contact Nexus Inc. ΓåÆ
+            Contact Nexus Inc. →
           </Link>
         </div>
       </section>
